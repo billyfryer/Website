@@ -1,7 +1,7 @@
 ---
 
 images:
-- img/Reynolds Coliseum.jpg
+- img/Reynolds.jpg
 image_left: false
 show_action_link: true
 show_social_links: true
