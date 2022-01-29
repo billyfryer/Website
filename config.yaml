@@ -52,7 +52,7 @@ params:
     - icon: twitter
       icon_pack: fab
       url: https://twitter.com/_b4billy_
-- icon: linkedin
+    - icon: linkedin
       icon_pack: far
       url: https://www.linkedin.com/in/billy-fryer/
   socialInFooter: yes
