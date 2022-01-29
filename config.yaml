@@ -1,8 +1,8 @@
-baseURL: https://hugo-apero-docs.netlify.app/
+baseURL: https://billy-fryer.netlify.app/
 languageCode: en
 theme: hugo-apero
-title: Hugo Apéro
-author: Alison Hill
+title: Billy Fryer's Website
+author: Billy Fryer
 copyright: ''
 googleAnalytics: ''
 disqusShortname: ''
@@ -48,19 +48,13 @@ params:
   social:
     - icon: github
       icon_pack: fab
-      url: https://github.com/hugo-apero/
+      url: https://github.com/b4billy/
     - icon: twitter
       icon_pack: fab
-      url: https://twitter.com/apreshill
-    - icon: discord
-      icon_pack: fab
-      url: https://discord.gg/QbGXCFTMNb
-    - icon: youtube
-      icon_pack: fab
-      url: https://youtube.com/playlist?list=PLzxicn7kBeay3kTPuTQ9lSi7I5jfWmEwc
-    - icon: lemon
+      url: https://twitter.com/_b4billy_
+- icon: linkedin
       icon_pack: far
-      url: https://hugo-apero.netlify.app/
+      url: https://www.linkedin.com/in/billy-fryer/
   socialInFooter: yes
   socialInHeader: no
   textFontFamily: sans-serif
