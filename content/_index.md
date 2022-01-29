@@ -5,7 +5,7 @@ action_type: text
 description: Welcome to my website! I'm still learning how to do this so hopefully I will have this all sorted out soon!
 image_left: false
 images:
-- img/voir.jpg
+- img/Reynolds Coliseum.jpg
 show_action_link: true
 show_social_links: true
 subtitle: Hopefully a decent website soon!
