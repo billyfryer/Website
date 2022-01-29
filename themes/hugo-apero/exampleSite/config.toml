@@ -41,9 +41,9 @@ enableEmoji = true
   socialInFooter = true
   # Default image for social sharing and search engines. 
   # Place image file in `static` folder and specify image name here.
-  sharing_image = "/img/Reynolds Coliseum.jpg"
+  sharing_image = "/img/Reynolds.jpg"
   # Twitter username (without @). Used when a visitor shares your site on Twitter.
-  twitter = "apreshill"
+  twitter = "_b4billy_"
   
   # use a built-in color theme
   # one of: forest / grayscale / peach / plum /
@@ -65,8 +65,8 @@ enableEmoji = true
   customheadingFontFamily = "Fraunces"
   # alternatively, leave empty and select basic font options: sans-serif or serif
   # for more http://tachyons.io/docs/typography/font-family/
-  textFontFamily = "sans-serif"
-  headingFontFamily = "sans-serif"
+   textFontFamily = "courier"
+  headingFontFamily = "baskerville"
 
   # Configuration of https://utteranc.es/ for comments
   [params.utterances]
