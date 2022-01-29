@@ -1,17 +1,16 @@
 ---
 ## Configure page content in wide column
-title: "Why apéro?" # leave blank to exclude
+title: "About Me" # leave blank to exclude
 number_featured: 1 # pulling from mainSections in config.toml
 number_categories: 3 # set to zero to exclude
 use_featured: false
 show_intro: true
 intro: |
-  Apéro is a unique kind of casual get-together in French culture, when you gather with friends and get to know each other better over some apéritifs, snacks, and anything in between. A good apéro is one where you'd happily spend a few hours just hanging out.
+  I am an undergraduate junior (3rd year student) at North Carolina State University studying Statistics and Spanish. I am from Columbiana, Alabama - a small town halfway between Birmingham and Montgomery.
   
-  I hope this theme helps you create your own virtual apéro. A place where you and your site's visitors enjoy spending time, and one that helps folks get to know you better. 
+  I currently work with the NC State Women's Basketball and Baseball teams. I am also the President of the Sports Analytics Club at NC State. In the future, I hope to be a sports analyst for a pro sports team.
 show_outro: true
 outro: |
-  <i class="fas fa-glass-cheers pr2"></i>Sincere thanks to [Maëlle Salmon](https://masalmon.eu/) for her help naming this Hugo theme!
 ---
 
 ** index doesn't contain a body, just front matter above.
