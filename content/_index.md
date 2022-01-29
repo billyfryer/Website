@@ -2,9 +2,6 @@
 title: Billy Fryer's Website
 subtitle: Hopefully a decent website soon!
 description: Welcome to my website! I'm still learning how to do this so hopefully I will have this all sorted out soon!
-images:
-  - Reynolds.jpg
-image_left: false
 show_action_link: true
 show_social_links: true
 text_align_left: true
