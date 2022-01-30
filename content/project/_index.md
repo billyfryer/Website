@@ -15,13 +15,14 @@ show_author_byline: false
 show_post_date: true
 show_post_thumbnail: true
 sidebar:
-  author: Alison Hill
+  title: My Sports Analytics Problem
+  author: Billy Fryer
   description: |
-    A collection of wild-caught Hugo Apéro example sites.
+    A collection of some of my sports sports analytics projects!
   show_sidebar_adunit: false
   text_link_label: ""
   text_link_url: ""
-  title: Who is using Hugo Apéro?
+  
 ---
 
 
