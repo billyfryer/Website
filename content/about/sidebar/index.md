@@ -4,7 +4,6 @@ author: "Billy Fryer"
 role: "Student at NC State University"
 avatar_shape: circle # circle, square, rounded, leave blank to exclude
 show_social_links: true # specify social accounts in site config
-audio_link_label: "How to say my name" # leave blank to exclude
 link_list_label: "Social Media" # bookmarks, elsewhere, etc.
 link_list:
 - name: Twitter
