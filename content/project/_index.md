@@ -24,6 +24,5 @@ sidebar:
   title: Who is using Hugo Apéro?
 ---
 
-Here is some sample text to try and see what shows up where on my website.
 
 ** No content for the project index. This file provides front matter for the blog including the layout and boolean options. **
