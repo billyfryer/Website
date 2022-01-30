@@ -6,11 +6,6 @@ categories: ["R"]
 tags: ["intRo", "R Markdown", "Lahman"]
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
-```
-
-
 # R Markdown
 
 R Markdown is probably my favorite thing about R Studio. R Markdown files allow you to save your code and output as a readable file such as a pdf, html, a doc and many more. For this tutorial, we will mostly be focusing on the HTML output. Outputting as an HTML file has a few additional benefits over a PDF file. It's also possible to save an HTML file as a PDF as we will discuss later.
