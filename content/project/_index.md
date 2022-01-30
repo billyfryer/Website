@@ -15,7 +15,7 @@ show_author_byline: false
 show_post_date: true
 show_post_thumbnail: true
 sidebar:
-  title: My Sports Analytics Problem
+  title: My Sports Analytics Projects
   author: Billy Fryer
   description: |
     A collection of some of my sports sports analytics projects!
