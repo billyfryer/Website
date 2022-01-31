@@ -58,7 +58,7 @@ params:
   socialInFooter: yes
   socialInHeader: no
   textFontFamily: sans-serif
-  theme: forest
+  theme: plum
   twitter: apreshill
   utterances:
     issue_term: pathname
