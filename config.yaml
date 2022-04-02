@@ -89,22 +89,10 @@ menu:
       title: About Apéro
       url: /about/
       weight: 1
-    - name: Get started
-      title: Get started using the Hugo Apéro theme
-      url: /get-started/
-      weight: 2
     - name: Projects
       title: Project Portfolio
       url: /project/
       weight: 3
-    - name: Talks
-      title: Talks
-      url: /talk/
-      weight: 4
-    - name: Elements
-      title: Element Page
-      url: /elements/
-      weight: 5
 privacy:
   disqus:
     disable: no
