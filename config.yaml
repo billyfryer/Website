@@ -40,7 +40,6 @@ params:
   mainSections:
     - blog
     - project
-    - talk
   navallcaps: yes
   orgLocal: Anywhere
   orgName: RStudio
@@ -92,7 +91,7 @@ menu:
     - name: Projects
       title: Project Portfolio
       url: /project/
-      weight: 3
+      weight: 1
 privacy:
   disqus:
     disable: no

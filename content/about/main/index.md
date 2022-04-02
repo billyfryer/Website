@@ -3,6 +3,7 @@
 title: "About Me" # leave blank to exclude
 number_featured: 0 # pulling from mainSections in config.toml
 number_categories: 0 # set to zero to exclude
+featured: false
 use_featured: false
 show_intro: true
 intro: |
