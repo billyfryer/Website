@@ -40,6 +40,7 @@ params:
   mainSections:
     - blog
     - project
+    - contact
   navallcaps: yes
   orgLocal: Anywhere
   orgName: RStudio
@@ -75,22 +76,22 @@ menu:
       title: License
       url: /license/
       weight: 1
-    - name: Contact
-      title: Contact form
-      url: /contact/
-      weight: 2
     - name: Contributors
       title: Contributors
       url: /contributors/
-      weight: 3
+      weight: 1
   header:
     - name: About
-      title: About Apéro
+      title: About Me
       url: /about/
       weight: 1
     - name: Projects
       title: Project Portfolio
       url: /project/
+      weight: 1
+    - name: Contact
+      title: Contact form
+      url: /contact/
       weight: 1
 privacy:
   disqus:

@@ -6,7 +6,7 @@ description: This template has a **contact-us** form built right in. All you nee
 draft: false
 formspree_form_id: billyfryer@att.net
 layout: split-right
-name: Contact Us Form
+name: Contact Me Form
 show_poweredby_formspree: true
 show_social_links: true
 submit_button_label: Send Message
