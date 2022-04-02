@@ -88,11 +88,11 @@ menu:
     - name: Projects
       title: Project Portfolio
       url: /project/
-      weight: 1
+      weight: 2
     - name: Contact
       title: Contact form
       url: /contact/
-      weight: 1
+      weight: 3
 privacy:
   disqus:
     disable: no
