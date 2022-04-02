@@ -76,23 +76,23 @@ menu:
       title: License
       url: /license/
       weight: 1
-    - name: Contributors
-      title: Contributors
-      url: /contributors/
-      weight: 1
   header:
     - name: About
       title: About Me
       url: /about/
       weight: 1
+    - name: Posts
+      title: Blog Posts
+      url: /post/
+      weight: 2 
     - name: Projects
       title: Project Portfolio
       url: /project/
-      weight: 2
+      weight: 3
     - name: Contact
       title: Contact form
       url: /contact/
-      weight: 3
+      weight: 4
 privacy:
   disqus:
     disable: no
