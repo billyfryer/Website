@@ -87,7 +87,7 @@ menu:
       weight: 2 
     - name: Projects
       title: Project Portfolio
-      url: /project/
+      url: /projects/
       weight: 3
     - name: Contact
       title: Contact form
