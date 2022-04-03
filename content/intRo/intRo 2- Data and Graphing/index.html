@@ -1,6 +1,6 @@
 ---
-title: "intRo 3- Sharing"
-author: "Billy Fryer"
+title: "intRo 2- Data and Graphing"
+author: "Billy Fryer with inspiration from Brendan Kent, Graham Pash, and Jason Thompson"
 date: 2021-01-20
 categories: ["R"]
 tags: ["intRo Tutorials"]
@@ -9,65 +9,14 @@ tags: ["intRo Tutorials"]
 <script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
 
 
-<div id="introduction-to-github" class="section level1">
-<h1>Introduction to Github</h1>
-<p>Sharing both code and results are super important when doing data analysis of any kind, but especially in sports analytics. In intRo 2, we went over how to make plots and that there are sports data packages on a website called GitHub. Now, it’s our turn to share our work, specifically the code, with other sports analytics people. This can be to show off all of the hard work we have done or to collaborate with partners on a project by working together.</p>
-<p>This tutorial will be pretty different than the rest of the intRo series because it is not necessarily with R, but instead just a more general coding thing that people should learn.</p>
-<div id="what-is-github" class="section level2">
-<h2>What is Github?</h2>
-<p>Github is a site where users submit files to version control. This allows for coders to collaborate on code without fear of losing a previous version if they have a major mess up. This also allows coders to both be working on a piece of code at the same time.</p>
+<div id="reading-in-csvs" class="section level1">
+<h1>Reading in CSVs</h1>
+<p>There are many ways to read in data sets. We are going to focus on CSVs since that is one of the most common data types found. CSV stands for Comma Separated Values. This that the data is <em>delimited</em> or separated with commas. These will eventually make up our columns. Using the <em>read_csv()</em> function from the tidyverse package is the easiest way to read in a csv.</p>
 </div>
-<div id="why-is-github-important" class="section level2">
-<h2>Why is Github important?</h2>
-<p>Having a Github account is important because it allows you a place to display all of your code publicly as a portfolio. It also allows other people to see your current projects and give feedback to improve your projects. Github fosters collaboration which is vital to the coding community.</p>
-</div>
-<div id="words-to-know" class="section level2">
-<h2>Words to Know</h2>
-<p>A <em>repository</em> is similar to a folder on your computer. All of your files for a project go inside the repository.</p>
-<p>A <em>branch</em> is a version of a repository. Branches are like alternate realities of a repository. Instead of “breaking off” a branch, one says that they <em>fork</em> a branch in order to make their own changes. Forking branches are the reason why Github is one of the best platforms for collaboration: it allows multiple people to work on a project at the same time while not messing up a current correct version.</p>
-<p>A <em>pull request</em> is a request to the owner of the repository to merge your edits to the <em>main branch</em>, the one that contains the current</p>
-<p>The <em>README file</em> is the explanation of all of your work. In your README file, you should outline what every file in your repository does or contains. If you are creating a package in R, this should be an explanation of important functions inside your package.</p>
-<p>More words will be introduced as appropriate. In the text document, these are bolded.</p>
-<div style="page-break-after: always;"></div>
-</div>
-<div id="creating-a-new-repository" class="section level2">
-<h2>Creating a New Repository</h2>
-<p>After creating an account, click your <strong>profile picture</strong> in the top right corner. Then click the <strong>Repositories</strong> tab. Finally, click <strong>New</strong> to create a new repository.</p>
-<p>This should open up a new page, where you need to enter a repository name and a general description of the repository. This should be around a paragraph. This should not be a full length explanation of the entire file, that’s what the README file is for. From there, click the check-box next to <strong>Add a README file</strong> in order to add a README file. Finally, click <strong>Create Repository</strong> to create the your new repo.</p>
-</div>
-<div id="adding-files-to-the-repository" class="section level2">
-<h2>Adding Files to the Repository</h2>
-<p>Adding files to your repo is pretty simple. Drag the file from your computer to the main screen of your repository. Then, attach a name a description to your <em>commit</em> and click <strong>commit changes</strong> to submit to the main branch.</p>
-</div>
-<div id="tracking-commits" class="section level2">
-<h2>Tracking Commits</h2>
-<p>The best way to look about how a repository has changed over time is looking at a timeline. To see this view, click the <strong>Insights</strong> tab and then click <strong>Network</strong>. This shows the main branch as well as all other branches that have were created or <em>merged</em> back to main branch.</p>
-</div>
-<div id="forking" class="section level2">
-<h2>Forking</h2>
-<p>Forking is very useful when you do not want to mess up your current repository. Forking creates a branch which, to make a comparison, is like an alternate timeline in the movie Back to the Future. However, you can always delete the branch and go back to the original timeline. To create a new branch, go to the <strong>Code</strong> tab. Then click the button that says <strong>main</strong> and type in a name for a new branch. Finally, click <strong>Create Branch</strong> to create this branch.</p>
-<p>From there, make the changes in this branch as you would the main branch. To commit the branch you created back to main branch, click on the <strong>Pull requests</strong> tab, then click <strong>Compare &amp; pull request</strong>. Create a name and a quick description to describe what changes you made from the original branch. Finally, click <strong>Create pull request</strong> to submit the pull request. The owner of the repository will merge the pull request.</p>
-</div>
-<div id="merging-pull-requests" class="section level2">
-<h2>Merging Pull Requests</h2>
-<p>If you are the owner of the repository, you are the one that gets the final say on what gets committed to the main branch of the repository. To see the changes, click on the <strong>Pull requests</strong> tab and click on the pull request that is available. You should look for changes that were made and see if you like them. If you do, click the <strong>Merge pull request</strong> button and then <strong>Confirm merge</strong> to merge with the main branch. After you merg the branch, you should delete it. To do this, click the <strong>Delete branch</strong> button.</p>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div id="sharing-your-content" class="section level1">
-<h1>Sharing Your Content</h1>
-<p>One of the most important things is sharing the work that you create. One of the most popular ways to do so and to get feedback in the sports analytics community is by posting on Twitter. Here are some tips about posting your work for others to see:</p>
-<ul>
-<li><p>Make sure and say where your data is from! It’s always nice to give credit where it is due, so in the caption of any plot that you make, make sure to explicitly state what package and/or what website you got your data from. A except of writing this is “Data from ESPN via the wehoop package”</p></li>
-<li><p>On the flip side, make sure and put your social media handle or your name on graphics you make. Unfortunately, people may try to steal your work, but if you tag yourself, they can’t claim it as their own. On the other hand, if someone shares your work, it’s even easier for people to look you up if your tag is already part of the graphic. This can also be listed as part of the caption for your plot.</p></li>
-<li><p>Make sure to be colorblind friendly in your plots! This includes not mixing reds, greens, and browns that may be easily confused. To make sure your plot isn’t colorblind unfriendly, look up colorblind themes on Google.</p></li>
-<li><p>Feel free to tag the Sports Analytics Club at NC State on Twitter! We’d love to post cool graphics created by members to share with people that may not be in your current network.</p></li>
-</ul>
-</div>
-<div id="example" class="section level1">
-<h1>Example</h1>
-<pre class="r"><code># Packages
-library(tidyverse)</code></pre>
+<div id="basics-of-web-scraping" class="section level1">
+<h1>Basics of Web Scraping</h1>
+<p>Web Scraping is a topic that seems big and scary, but actually isn’t as bad as one would think. Web Scraping is pulling data from the Internet so it can be used in a functional form. It is an individualized process however, meaning that you have to change the way you do it for every individual website. The example here is for the Kenpom website front page, one of the best sources for men’s college basketball information</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
 <pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
 ## v tibble  3.1.6     v dplyr   1.0.8
@@ -76,37 +25,236 @@ library(tidyverse)</code></pre>
 <pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(Lahman)
+<pre class="r"><code>library(rvest)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;rvest&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:readr&#39;:
+## 
+##     guess_encoding</code></pre>
+<pre class="r"><code>url &lt;- &quot;https://kenpom.com/&quot;
+url %&gt;% 
+  read_html() %&gt;% 
+  html_table() -&gt; df
 
-# Data Cleaning
-redsox &lt;- Pitching %&gt;% 
-  filter(yearID == 2004) %&gt;% 
-  filter(teamID == &quot;BOS&quot;)
+df &lt;- df[[1]]  %&gt;% # only want the first (main) table
+  data.frame()
 
-# Plotting 1
-boxplot &lt;-
-ggplot(redsox,
-       aes(x = teamID,
-           y = HR)) +
-  geom_boxplot()
+names(df) &lt;- df[1,] %&gt;% as.character # Assigning the first row as the headers
+df &lt;- df[-1,] # Drops 1st row from data frame
 
-print(boxplot)</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphic-1.png" width="672" /></p>
-<pre class="r"><code># Plotting 1
-violin &lt;-
-ggplot(redsox,
-       aes(x = teamID,
-           y = HR)) +
-  geom_violin()
+# There are some random blank rows in the dataframe
+df &lt;- df[!is.na(as.numeric(df$Rk)),] # drop column name rows</code></pre>
+<pre><code>## Warning in `[.data.frame`(df, !is.na(as.numeric(df$Rk)), ): NAs introduced by
+## coercion</code></pre>
+<pre class="r"><code>row.names(df) &lt;- 1:nrow(df) # makes rownames the numbers 1:number of rows
 
-print(violin)</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphic-2.png" width="672" /></p>
-<pre class="r"><code># Adding Labels
-fullplot &lt;- violin +
-  labs(title = &quot;Red Sox Pitchers Homeruns Allowed&quot;,
-       subtitle = &quot;2004 World Series Season&quot;,
-       caption = &quot;Data Viz by Billy Fryer (@_b4billy_) | Data from Lahman Data Sets&quot;)
-  
-print(fullplot)</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphic-3.png" width="672" /></p>
+# handle duplicate column names by renaming everything
+names(df) &lt;- c(&#39;Rk&#39;,&#39;Team&#39;,&#39;Conf&#39;,&#39;W_L&#39;,&#39;AdjEM&#39;,&#39;AdjO&#39;,&#39;AdjO_Rk&#39;,&#39;AdjD&#39;,&#39;AdjD_Rk&#39;, &#39;AdjT&#39;,&#39;AdjT_Rk&#39;,&#39;Luck&#39;,&#39;Luck_Rk&#39;,&#39;OppAdjEM&#39;,&#39;OppAdjEM_Rk&#39;, &#39;OppO&#39;,&#39;OppO_Rk&#39;,&#39;OppD&#39;,&#39;OppD_Rk&#39;,&#39;NCAdjEM&#39;,&#39;NCAdjEM_Rk&#39;)
+
+# subset only useful variables
+df &lt;- df %&gt;% select(c(&#39;Rk&#39;,&#39;Team&#39;,&#39;Conf&#39;,&#39;W_L&#39;,&#39;AdjEM&#39;,&#39;AdjO&#39;,&#39;AdjD&#39;,&#39;AdjT&#39;,&#39;Luck&#39;, &#39;OppAdjEM&#39;,&#39;OppO&#39;,&#39;OppD&#39;,&#39;NCAdjEM&#39;))
+
+# Change types to numeric
+
+str(df)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    358 obs. of  13 variables:
+##  $ Rk      : chr  &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ Team    : chr  &quot;Gonzaga 1&quot; &quot;Houston 5&quot; &quot;Kansas 1&quot; &quot;Baylor 1&quot; ...
+##  $ Conf    : chr  &quot;WCC&quot; &quot;Amer&quot; &quot;B12&quot; &quot;B12&quot; ...
+##  $ W_L     : chr  &quot;28-4&quot; &quot;32-6&quot; &quot;33-6&quot; &quot;27-7&quot; ...
+##  $ AdjEM   : chr  &quot;+30.95&quot; &quot;+27.70&quot; &quot;+27.61&quot; &quot;+27.06&quot; ...
+##  $ AdjO    : chr  &quot;120.6&quot; &quot;116.7&quot; &quot;119.6&quot; &quot;118.0&quot; ...
+##  $ AdjD    : chr  &quot;89.7&quot; &quot;89.0&quot; &quot;92.0&quot; &quot;90.9&quot; ...
+##  $ AdjT    : chr  &quot;72.5&quot; &quot;63.7&quot; &quot;69.3&quot; &quot;67.4&quot; ...
+##  $ Luck    : chr  &quot;-.039&quot; &quot;-.012&quot; &quot;+.034&quot; &quot;+.004&quot; ...
+##  $ OppAdjEM: chr  &quot;+4.26&quot; &quot;+5.90&quot; &quot;+12.41&quot; &quot;+10.97&quot; ...
+##  $ OppO    : chr  &quot;104.6&quot; &quot;105.5&quot; &quot;107.8&quot; &quot;107.4&quot; ...
+##  $ OppD    : chr  &quot;100.3&quot; &quot;99.6&quot; &quot;95.4&quot; &quot;96.5&quot; ...
+##  $ NCAdjEM : chr  &quot;-2.86&quot; &quot;+0.20&quot; &quot;+4.14&quot; &quot;-1.88&quot; ...</code></pre>
+<pre class="r"><code># We have a bunch of columns that are supposed to be numbers, 
+# But they are character strings. We need to change that.
+
+# This line of code applies the as.numeric() function to column
+# 1 and columns 5 to 13 which makes them usable later. Ideally,
+# We would use more tidyverse functions to make this better, but
+# for now, it will do.
+df[,c(1,5:13)] &lt;- sapply(df[,c(1,5:13)], as.numeric)
+
+# Now let&#39;s look at the structure of df
+str(df)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    358 obs. of  13 variables:
+##  $ Rk      : num  1 2 3 4 5 6 7 8 9 10 ...
+##  $ Team    : chr  &quot;Gonzaga 1&quot; &quot;Houston 5&quot; &quot;Kansas 1&quot; &quot;Baylor 1&quot; ...
+##  $ Conf    : chr  &quot;WCC&quot; &quot;Amer&quot; &quot;B12&quot; &quot;B12&quot; ...
+##  $ W_L     : chr  &quot;28-4&quot; &quot;32-6&quot; &quot;33-6&quot; &quot;27-7&quot; ...
+##  $ AdjEM   : num  30.9 27.7 27.6 27.1 26 ...
+##  $ AdjO    : num  121 117 120 118 118 ...
+##  $ AdjD    : num  89.7 89 92 90.9 92.6 94.2 84.9 95.9 86.4 92.9 ...
+##  $ AdjT    : num  72.5 63.7 69.3 67.4 72.2 67.5 66.5 67.3 67.4 62.3 ...
+##  $ Luck    : num  -0.039 -0.012 0.034 0.004 0.048 -0.043 -0.031 0.001 0.029 0.06 ...
+##  $ OppAdjEM: num  4.26 5.9 12.41 10.97 6.46 ...
+##  $ OppO    : num  105 106 108 107 106 ...
+##  $ OppD    : num  100.3 99.6 95.4 96.5 99.4 ...
+##  $ NCAdjEM : num  -2.86 0.2 4.14 -1.88 -0.77 -2.72 -8.23 -4.56 4.82 8.66 ...</code></pre>
+<pre class="r"><code># Our variables are numbers</code></pre>
+<p>We can go much more in depth about web scraping, but that would get very time consuming. It would be a better use of our time to look at data that is easier to access.</p>
+</div>
+<div id="packages-with-good-sports-data" class="section level1">
+<h1>Packages with Good Sports Data</h1>
+<p>I want to give credit to Brendan Kent’s Website <a href="https://brendankent.com" class="uri">https://brendankent.com</a> for the majority of these R packages mentioned. For a link to this specific article, check out <a href="https://brendankent.com/2021/03/09/free-sports-data-sources/" class="uri">https://brendankent.com/2021/03/09/free-sports-data-sources/</a>.</p>
+<p>One of the unique things about R is that anyone can create a package and share it with others for public use on Github. Github is a code sharing platform that we will discuss more about in a future meeting. For now, we will learn how to get packages off of Github by using the devtools package.</p>
+<pre class="r"><code># Install and load devtools package
+#install.packages(&quot;devtools&quot;)
+library(devtools)</code></pre>
+<pre><code>## Loading required package: usethis</code></pre>
+<pre class="r"><code># Use the devtools function install_github to install packages from github
+# install_github(&quot;lbenz730/ncaahoopR&quot;)
+
+library(ncaahoopR) # Then load it just as you would any other package</code></pre>
+<p>If this is not working, look and see if your packages need updating. To do this, click on the packages tab on the right side of the screen and then click Update.</p>
+<p>We will now discuss packages by sports. If any of these sound interesting to you, just look them up to see documentation and how to download them!</p>
+<p><strong>Just a side note: There are a lot of puns using R in the names of packages. You have been warned.</strong></p>
+<div id="american-football" class="section level2">
+<h2>American Football</h2>
+<ul>
+<li>nflscrapR</li>
+<li>nflfastR</li>
+<li>NFLSimulatoR</li>
+<li>cfbscrapR</li>
+<li>ffsimulator</li>
+</ul>
+</div>
+<div id="basketball" class="section level2">
+<h2>Basketball</h2>
+<ul>
+<li>nbastatR</li>
+<li>ncaahoopR</li>
+<li>hoopR</li>
+<li>wehoop</li>
+<li>airball</li>
+</ul>
+</div>
+<div id="baseball" class="section level2">
+<h2>Baseball</h2>
+<ul>
+<li>baseballr</li>
+<li>Lahman (availible on CRAN)</li>
+</ul>
+</div>
+<div id="soccer" class="section level2">
+<h2>Soccer</h2>
+<ul>
+<li>socceR</li>
+<li>footballR</li>
+<li>ggsoccer</li>
+<li>worldfootballR</li>
+<li>tyrone_mings</li>
+</ul>
+</div>
+<div id="cricket" class="section level2">
+<h2>Cricket</h2>
+<ul>
+<li>cricketr (availible on CRAN)</li>
+</ul>
+<p>For other sports, I again point you to Brendan Kent’s article <a href="https://brendankent.com/2021/03/09/free-sports-data-sources/" class="uri">https://brendankent.com/2021/03/09/free-sports-data-sources/</a>. More sports are included there as well as websites you could possible scrape from.</p>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="graphing" class="section level1">
+<h1>Graphing</h1>
+<p>One of the most useful things that sports analysts do is create graphics. Graphics are simply easy ways do digest information. These include charts, small tables, and graphs. A great way of doing this is with the <code>ggplot2</code> package! Let’s do some examples based on the Kenpom data we scraped earlier.</p>
+<div id="histogram-of-team-luck" class="section level2">
+<h2>Histogram of Team Luck</h2>
+<p>To Start, we will make use the <code>ggplot</code> function to give the data parameters. The first argument will be the name of the data frame we want to use.</p>
+<p>The second argument, mapping, is normally the trickiest to wrap your head around. If you are mapping something <em>based on a value inside your data</em>, you must wrap it inside <code>aes()</code>. If you want to set something a <em>constant value</em>, it does not go inside <code>aes()</code>. For example, since we want to make a histogram based on the Luck variable, that needs to go inside an <code>aes()</code> statement. This construct applies later on as well inside of the <code>geom_***()</code> functions as well.</p>
+<p>Finally, we are ready to make the actual graph. Depending on what we want, we would want to use the corresponding <code>geom_***()</code> function. Since we want a histogram, we use the <code>geom_histogram()</code> function. We can specify the number of bins we want with the <code>bins =</code> option. Since we want to specify this as a set number, we do not wrap it in a <code>aes()</code> function.</p>
+<pre class="r"><code>ggplot(df, aes(x = Luck)) +
+  geom_histogram(bins = 40)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphing%20Example%201-1.png" width="672" /></p>
+</div>
+<div id="upgrading-our-plot" class="section level2">
+<h2>Upgrading our Plot</h2>
+<p>If we want to add on to a plot, we can do that to! To add layers on to a plot, we put a + between layers. Plots can also be saved to an object which allows us to add on at different times. To see a plot after saving it, wrap it in a <code>print()</code> statement.</p>
+<pre class="r"><code>ggplot(df, aes(x = Luck)) +
+  geom_histogram(bins = 40)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphing%20Example%202-1.png" width="672" /></p>
+<pre class="r"><code>luck_plot &lt;- ggplot(df, aes(x = Luck)) +
+              geom_histogram(aes(y = ..density..),
+                                 bins = 40)</code></pre>
+<p>To add a title, subtitle, and caption use the <code>labs()</code> function.</p>
+<pre class="r"><code>luck_plot2 &lt;- luck_plot +
+  labs(title = &quot;NCAA Basketball Luck&quot;,
+       subtitle = &quot;Current NCAA MBB Season&quot;,
+       caption = &quot;Viz by Billy Fryer (@_b4billy_) ~ Data from kenpom.com&quot;)
+
+print(luck_plot2)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphing%20Example%203-1.png" width="672" /></p>
+<p>If we want a density curve around the histogram, that’s easy too. We can even change the color to make it stand out more. Finally, to output the file to your computer, we use the <code>ggsave()</code> function</p>
+<pre class="r"><code>luck_plot3 &lt;- luck_plot2 +
+  # Add a Red Density curve
+  geom_density(color = &quot;red&quot;,
+               fill = &quot;yellow&quot;,
+               alpha = .5) +
+  # Center Title and subtitle
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+
+print(luck_plot3)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphing%20Example%204-1.png" width="672" /></p>
+<pre class="r"><code>#ggsave(&quot;Luckiest Teams.png&quot;, luck_plot)</code></pre>
+<p>The ggplot2 package is one of the best packages in R and there are tons of resources that one can learn more about it. For more information, search “ggplot2 cheat sheet” which gives more information about available plots in the package or “Tidy Tuesday” which is a R Community initiative to teach others about manipulating data with the <code>Tidyverse</code> package and plotting with <code>ggplot2</code>.</p>
+</div>
+</div>
+<div id="graphing-in-groups" class="section level1">
+<h1>Graphing in Groups</h1>
+<p>There may be times where you want to group objects together and perform analysis on that. This is very useful when doing analysis where players may be represented in different rows, such as a pitch by pitch analysis in baseball. We will use the same data frame to group by Conference.</p>
+<pre class="r"><code># Make a copy of df and call it df_by_conference
+df_by_conference &lt;- df
+
+df_by_conference &lt;- df_by_conference %&gt;% 
+  # Group By Conference
+  group_by(Conf) %&gt;% 
+  # Summarize Statistics
+  summarize( # Find Mean Rank by Conference
+            Rk = mean(Rk, na.rm = TRUE),
+            # Find Mean AdjEM by Conference
+            AdjEM = mean(AdjEM, na.rm = TRUE)) %&gt;% 
+  # Can&#39;t forget to Ungroup!
+  ungroup() %&gt;% 
+  # Add a Power 6 Column
+  # ACC, SEC BIG 10, BIG 12, BIG EAST
+  mutate(Power6 = case_when(Conf %in% c(&quot;ACC&quot;, &quot;SEC&quot;, &quot;B10&quot;, &quot;B12&quot;, &quot;BE&quot;, &quot;P12&quot;) ~ &quot;Power Conference&quot;,
+                            TRUE ~ &quot;Non-Power Conference&quot;))
+
+# Make Power6 a factor variable
+df_by_conference$Power6 &lt;- factor(df_by_conference$Power6)</code></pre>
+<p>Now that we have a new data set, it’s time to graph it!</p>
+<pre class="r"><code># Give the df name then the x and y coordinates
+ggplot(df_by_conference, aes(x = AdjEM,
+                             y = Rk)) +
+  # We want to color by whether or not they 
+  # are a Power Conference, so we use the color = option
+  # geom_point() plots data points
+  geom_point(aes(color = Power6)) +
+  # Labels
+  labs(title = &quot;Conferences by Rank and AdjEM&quot;,
+       # I didn&#39;t want to include a Legend Title
+       color = &quot;&quot;,
+       y = &quot;Rank&quot;, 
+       x = &quot;Adjusted Efficiency Margin&quot;,
+       # Give Credit to Yourself and the Data Source
+       caption = &quot;Viz by Billy Fryer (@_b4billy_) | Data from kenpom.com&quot;) +
+  # Centering the title
+  theme(plot.title = element_text(hjust = 0.5)) +
+  # Choosing colors. The # then the letters and numbers
+  # Represents Hex Colors!
+  scale_color_manual(values =  c(
+                    &quot;Power Conference&quot; = &quot;#FF0000&quot;,
+                     &quot;Non-Power Conference&quot; = &quot;#000000&quot;)
+                    )</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/Grouping%20Graph%202-1.png" width="672" /></p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>Many thanks again to Brendan Kent (Twitter: <span class="citation">@brendankent</span>, <span class="citation">@MeasurablesPod</span>), Graham Pash (Twitter: <span class="citation">@gtpash</span>), and Jason Thompson (Twitter: <span class="citation">@jason24thompson</span>) for allowing me to use some of their stuff. As a recap, we covered how to read in CSVs, some very basic webscraping, and learned more about packages that have sports data. More importantly, we learned how to make graphics in R using the <code>ggplot2</code> package.</p>
 </div>

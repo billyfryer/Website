@@ -15,6 +15,7 @@ There are many ways to read in data sets. We are going to focus on CSVs since th
 Web Scraping is a topic that seems big and scary, but actually isn't as bad as one would think. Web Scraping is pulling data from the Internet so it can be used in a functional form. It is an individualized process however, meaning that you have to change the way you do it for every individual website. The example here is for the Kenpom website front page, one of the best sources for men's college basketball information
 
 ```{r webscraping}
+library(tidyverse)
 library(rvest)
 
 url <- "https://kenpom.com/"
