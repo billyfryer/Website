@@ -8,8 +8,8 @@ cascade:
   sidebar:
     show_sidebar_adunit: true
     text_link_label: View all examples
-    text_link_url: /project/
-description: A collection of my some of my sports analytics projects!
+    text_link_url: /projects/
+description: A collection of my some of my sports analytics projects soon to come!
 layout: list-grid
 show_author_byline: false
 show_post_date: true
