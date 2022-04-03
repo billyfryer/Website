@@ -3,7 +3,7 @@ title: "intRo 4- R Markdown"
 author: "Billy Fryer"
 date: 2021-01-20
 categories: ["R"]
-tags: ["intRo", "R Markdown", "Lahman"]
+tags: ["intRo Tutorials"]
 ---
 
 # R Markdown

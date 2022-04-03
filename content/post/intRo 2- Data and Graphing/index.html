@@ -1,0 +1,112 @@
+---
+title: "intRo 3- Sharing"
+author: "Billy Fryer"
+date: 2021-01-20
+categories: ["R"]
+tags: ["intRo Tutorials"]
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="introduction-to-github" class="section level1">
+<h1>Introduction to Github</h1>
+<p>Sharing both code and results are super important when doing data analysis of any kind, but especially in sports analytics. In intRo 2, we went over how to make plots and that there are sports data packages on a website called GitHub. Now, it’s our turn to share our work, specifically the code, with other sports analytics people. This can be to show off all of the hard work we have done or to collaborate with partners on a project by working together.</p>
+<p>This tutorial will be pretty different than the rest of the intRo series because it is not necessarily with R, but instead just a more general coding thing that people should learn.</p>
+<div id="what-is-github" class="section level2">
+<h2>What is Github?</h2>
+<p>Github is a site where users submit files to version control. This allows for coders to collaborate on code without fear of losing a previous version if they have a major mess up. This also allows coders to both be working on a piece of code at the same time.</p>
+</div>
+<div id="why-is-github-important" class="section level2">
+<h2>Why is Github important?</h2>
+<p>Having a Github account is important because it allows you a place to display all of your code publicly as a portfolio. It also allows other people to see your current projects and give feedback to improve your projects. Github fosters collaboration which is vital to the coding community.</p>
+</div>
+<div id="words-to-know" class="section level2">
+<h2>Words to Know</h2>
+<p>A <em>repository</em> is similar to a folder on your computer. All of your files for a project go inside the repository.</p>
+<p>A <em>branch</em> is a version of a repository. Branches are like alternate realities of a repository. Instead of “breaking off” a branch, one says that they <em>fork</em> a branch in order to make their own changes. Forking branches are the reason why Github is one of the best platforms for collaboration: it allows multiple people to work on a project at the same time while not messing up a current correct version.</p>
+<p>A <em>pull request</em> is a request to the owner of the repository to merge your edits to the <em>main branch</em>, the one that contains the current</p>
+<p>The <em>README file</em> is the explanation of all of your work. In your README file, you should outline what every file in your repository does or contains. If you are creating a package in R, this should be an explanation of important functions inside your package.</p>
+<p>More words will be introduced as appropriate. In the text document, these are bolded.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="creating-a-new-repository" class="section level2">
+<h2>Creating a New Repository</h2>
+<p>After creating an account, click your <strong>profile picture</strong> in the top right corner. Then click the <strong>Repositories</strong> tab. Finally, click <strong>New</strong> to create a new repository.</p>
+<p>This should open up a new page, where you need to enter a repository name and a general description of the repository. This should be around a paragraph. This should not be a full length explanation of the entire file, that’s what the README file is for. From there, click the check-box next to <strong>Add a README file</strong> in order to add a README file. Finally, click <strong>Create Repository</strong> to create the your new repo.</p>
+</div>
+<div id="adding-files-to-the-repository" class="section level2">
+<h2>Adding Files to the Repository</h2>
+<p>Adding files to your repo is pretty simple. Drag the file from your computer to the main screen of your repository. Then, attach a name a description to your <em>commit</em> and click <strong>commit changes</strong> to submit to the main branch.</p>
+</div>
+<div id="tracking-commits" class="section level2">
+<h2>Tracking Commits</h2>
+<p>The best way to look about how a repository has changed over time is looking at a timeline. To see this view, click the <strong>Insights</strong> tab and then click <strong>Network</strong>. This shows the main branch as well as all other branches that have were created or <em>merged</em> back to main branch.</p>
+</div>
+<div id="forking" class="section level2">
+<h2>Forking</h2>
+<p>Forking is very useful when you do not want to mess up your current repository. Forking creates a branch which, to make a comparison, is like an alternate timeline in the movie Back to the Future. However, you can always delete the branch and go back to the original timeline. To create a new branch, go to the <strong>Code</strong> tab. Then click the button that says <strong>main</strong> and type in a name for a new branch. Finally, click <strong>Create Branch</strong> to create this branch.</p>
+<p>From there, make the changes in this branch as you would the main branch. To commit the branch you created back to main branch, click on the <strong>Pull requests</strong> tab, then click <strong>Compare &amp; pull request</strong>. Create a name and a quick description to describe what changes you made from the original branch. Finally, click <strong>Create pull request</strong> to submit the pull request. The owner of the repository will merge the pull request.</p>
+</div>
+<div id="merging-pull-requests" class="section level2">
+<h2>Merging Pull Requests</h2>
+<p>If you are the owner of the repository, you are the one that gets the final say on what gets committed to the main branch of the repository. To see the changes, click on the <strong>Pull requests</strong> tab and click on the pull request that is available. You should look for changes that were made and see if you like them. If you do, click the <strong>Merge pull request</strong> button and then <strong>Confirm merge</strong> to merge with the main branch. After you merg the branch, you should delete it. To do this, click the <strong>Delete branch</strong> button.</p>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="sharing-your-content" class="section level1">
+<h1>Sharing Your Content</h1>
+<p>One of the most important things is sharing the work that you create. One of the most popular ways to do so and to get feedback in the sports analytics community is by posting on Twitter. Here are some tips about posting your work for others to see:</p>
+<ul>
+<li><p>Make sure and say where your data is from! It’s always nice to give credit where it is due, so in the caption of any plot that you make, make sure to explicitly state what package and/or what website you got your data from. A except of writing this is “Data from ESPN via the wehoop package”</p></li>
+<li><p>On the flip side, make sure and put your social media handle or your name on graphics you make. Unfortunately, people may try to steal your work, but if you tag yourself, they can’t claim it as their own. On the other hand, if someone shares your work, it’s even easier for people to look you up if your tag is already part of the graphic. This can also be listed as part of the caption for your plot.</p></li>
+<li><p>Make sure to be colorblind friendly in your plots! This includes not mixing reds, greens, and browns that may be easily confused. To make sure your plot isn’t colorblind unfriendly, look up colorblind themes on Google.</p></li>
+<li><p>Feel free to tag the Sports Analytics Club at NC State on Twitter! We’d love to post cool graphics created by members to share with people that may not be in your current network.</p></li>
+</ul>
+</div>
+<div id="example" class="section level1">
+<h1>Example</h1>
+<pre class="r"><code># Packages
+library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.8
+## v tidyr   1.2.0     v stringr 1.4.0
+## v readr   2.1.2     v forcats 0.5.1</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(Lahman)
+
+# Data Cleaning
+redsox &lt;- Pitching %&gt;% 
+  filter(yearID == 2004) %&gt;% 
+  filter(teamID == &quot;BOS&quot;)
+
+# Plotting 1
+boxplot &lt;-
+ggplot(redsox,
+       aes(x = teamID,
+           y = HR)) +
+  geom_boxplot()
+
+print(boxplot)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphic-1.png" width="672" /></p>
+<pre class="r"><code># Plotting 1
+violin &lt;-
+ggplot(redsox,
+       aes(x = teamID,
+           y = HR)) +
+  geom_violin()
+
+print(violin)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphic-2.png" width="672" /></p>
+<pre class="r"><code># Adding Labels
+fullplot &lt;- violin +
+  labs(title = &quot;Red Sox Pitchers Homeruns Allowed&quot;,
+       subtitle = &quot;2004 World Series Season&quot;,
+       caption = &quot;Data Viz by Billy Fryer (@_b4billy_) | Data from Lahman Data Sets&quot;)
+  
+print(fullplot)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/Graphic-3.png" width="672" /></p>
+</div>
