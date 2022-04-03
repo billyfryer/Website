@@ -81,9 +81,9 @@ menu:
       title: About Me
       url: /about/
       weight: 1
-    - name: Posts
-      title: Blog Posts
-      url: /post/
+    - name: intRo Tutorials
+      title: intRo Tutorials
+      url: /intRo/
       weight: 2 
     - name: Projects
       title: Project Portfolio
