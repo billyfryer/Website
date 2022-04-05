@@ -6,6 +6,10 @@ categories: ["R"]
 tags: ["intRo Tutorials"]
 ---
 
+Here is a link to the recorded version of this tutorial!
+
+[intRo 2 Tutorial Link](https://www.youtube.com/watch?v=-ot2T-BPN1k&list=PLzfY2UeNJip_GBjX8xEcRcc9omZjl1jFU&index=2)
+
 # Reading in CSVs
 
 There are many ways to read in data sets. We are going to focus on CSVs since that is one of the most common data types found. CSV stands for Comma Separated Values. This that the data is *delimited* or separated with commas. These will eventually make up our columns. Using the *read_csv()* function from the tidyverse package is the easiest way to read in a csv. 

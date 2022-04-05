@@ -6,6 +6,10 @@ categories: ["R"]
 tags: ["intRo Tutorials"]
 ---
 
+Here is a link to the recorded version of this tutorial!
+
+[intRo 1 Tutorial Link](https://www.youtube.com/watch?v=rE4ah0nBouY&list=PLzfY2UeNJip_GBjX8xEcRcc9omZjl1jFU&index=1)
+
 # Single Value Variables
 
 ```{r Q1}

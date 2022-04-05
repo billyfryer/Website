@@ -3,12 +3,14 @@ title: "intRo 4- R Markdown"
 author: "Billy Fryer"
 date: 2021-01-20
 categories: ["R"]
-tags: ["intRo", "R Markdown", "Lahman"]
+tags: ["intRo Tutorials"]
 ---
 
 <script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
 
 
+<p>Here is a link to the recorded version of this tutorial!</p>
+<p><a href="https://www.youtube.com/watch?v=T_OeNoOtdrI&amp;list=PLzfY2UeNJip_GBjX8xEcRcc9omZjl1jFU&amp;index=4">intRo 4 Tutorial Link</a></p>
 <div id="r-markdown" class="section level1">
 <h1>R Markdown</h1>
 <p>R Markdown is probably my favorite thing about R Studio. R Markdown files allow you to save your code and output as a readable file such as a pdf, html, a doc and many more. For this tutorial, we will mostly be focusing on the HTML output. Outputting as an HTML file has a few additional benefits over a PDF file. It’s also possible to save an HTML file as a PDF as we will discuss later.</p>
@@ -115,12 +117,12 @@ library(gt)
 lahmanP %&gt;% 
   head() %&gt;% 
   gt()</code></pre>
-<div id="iypbgmajuq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="fmiyaspdfx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#iypbgmajuq .gt_table {
+#fmiyaspdfx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -145,7 +147,7 @@ lahmanP %&gt;%
   border-left-color: #D3D3D3;
 }
 
-#iypbgmajuq .gt_heading {
+#fmiyaspdfx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -157,33 +159,37 @@ lahmanP %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#iypbgmajuq .gt_title {
+#fmiyaspdfx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
   padding-top: 4px;
   padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
 
-#iypbgmajuq .gt_subtitle {
+#fmiyaspdfx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
   padding-top: 0;
   padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#iypbgmajuq .gt_bottom_border {
+#fmiyaspdfx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#iypbgmajuq .gt_col_headings {
+#fmiyaspdfx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -198,7 +204,7 @@ lahmanP %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#iypbgmajuq .gt_col_heading {
+#fmiyaspdfx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -218,7 +224,7 @@ lahmanP %&gt;%
   overflow-x: hidden;
 }
 
-#iypbgmajuq .gt_column_spanner_outer {
+#fmiyaspdfx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -230,15 +236,15 @@ lahmanP %&gt;%
   padding-right: 4px;
 }
 
-#iypbgmajuq .gt_column_spanner_outer:first-child {
+#fmiyaspdfx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#iypbgmajuq .gt_column_spanner_outer:last-child {
+#fmiyaspdfx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#iypbgmajuq .gt_column_spanner {
+#fmiyaspdfx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -250,8 +256,11 @@ lahmanP %&gt;%
   width: 100%;
 }
 
-#iypbgmajuq .gt_group_heading {
-  padding: 8px;
+#fmiyaspdfx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -272,7 +281,7 @@ lahmanP %&gt;%
   vertical-align: middle;
 }
 
-#iypbgmajuq .gt_empty_group_heading {
+#fmiyaspdfx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -287,15 +296,15 @@ lahmanP %&gt;%
   vertical-align: middle;
 }
 
-#iypbgmajuq .gt_from_md > :first-child {
+#fmiyaspdfx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#iypbgmajuq .gt_from_md > :last-child {
+#fmiyaspdfx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#iypbgmajuq .gt_row {
+#fmiyaspdfx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -314,7 +323,7 @@ lahmanP %&gt;%
   overflow-x: hidden;
 }
 
-#iypbgmajuq .gt_stub {
+#fmiyaspdfx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -323,10 +332,29 @@ lahmanP %&gt;%
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
-  padding-left: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#iypbgmajuq .gt_summary_row {
+#fmiyaspdfx .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#fmiyaspdfx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fmiyaspdfx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -336,17 +364,26 @@ lahmanP %&gt;%
   padding-right: 5px;
 }
 
-#iypbgmajuq .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
+#fmiyaspdfx .gt_first_summary_row {
   border-top-style: solid;
-  border-top-width: 2px;
   border-top-color: #D3D3D3;
 }
 
-#iypbgmajuq .gt_grand_summary_row {
+#fmiyaspdfx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fmiyaspdfx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fmiyaspdfx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -356,7 +393,7 @@ lahmanP %&gt;%
   padding-right: 5px;
 }
 
-#iypbgmajuq .gt_first_grand_summary_row {
+#fmiyaspdfx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -366,11 +403,11 @@ lahmanP %&gt;%
   border-top-color: #D3D3D3;
 }
 
-#iypbgmajuq .gt_striped {
+#fmiyaspdfx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#iypbgmajuq .gt_table_body {
+#fmiyaspdfx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -379,7 +416,7 @@ lahmanP %&gt;%
   border-bottom-color: #D3D3D3;
 }
 
-#iypbgmajuq .gt_footnotes {
+#fmiyaspdfx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -393,13 +430,16 @@ lahmanP %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#iypbgmajuq .gt_footnote {
+#fmiyaspdfx .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#iypbgmajuq .gt_sourcenotes {
+#fmiyaspdfx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -413,44 +453,71 @@ lahmanP %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#iypbgmajuq .gt_sourcenote {
+#fmiyaspdfx .gt_sourcenote {
   font-size: 90%;
-  padding: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#iypbgmajuq .gt_left {
+#fmiyaspdfx .gt_left {
   text-align: left;
 }
 
-#iypbgmajuq .gt_center {
+#fmiyaspdfx .gt_center {
   text-align: center;
 }
 
-#iypbgmajuq .gt_right {
+#fmiyaspdfx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#iypbgmajuq .gt_font_normal {
+#fmiyaspdfx .gt_font_normal {
   font-weight: normal;
 }
 
-#iypbgmajuq .gt_font_bold {
+#fmiyaspdfx .gt_font_bold {
   font-weight: bold;
 }
 
-#iypbgmajuq .gt_font_italic {
+#fmiyaspdfx .gt_font_italic {
   font-style: italic;
 }
 
-#iypbgmajuq .gt_super {
+#fmiyaspdfx .gt_super {
   font-size: 65%;
 }
 
-#iypbgmajuq .gt_footnote_marks {
+#fmiyaspdfx .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
-  font-size: 65%;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#fmiyaspdfx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fmiyaspdfx .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#fmiyaspdfx .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#fmiyaspdfx .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
 }
 </style>
 <table class="gt_table">

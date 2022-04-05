@@ -6,6 +6,10 @@ categories: ["R"]
 tags: ["intRo Tutorials"]
 ---
 
+Here is a link to the recorded version of this tutorial!
+
+[intRo 3 Tutorial Link](https://www.youtube.com/watch?v=N3IeIrd8yKM&list=PLzfY2UeNJip_GBjX8xEcRcc9omZjl1jFU&index=3)
+
 # Introduction to Github
 
 Sharing both code and results are super important when doing data analysis of any kind, but especially in sports analytics. In intRo 2, we went over how to make plots and that there are sports data packages on a website called GitHub. Now, it's our turn to share our work, specifically the code, with other sports analytics people. This can be to show off all of the hard work we have done or to collaborate with partners on a project by working together.
