@@ -7,4 +7,4 @@ headline: |
 ---
 
 <!-- this is a subheadline -->
-Hi my name is Billy Fryer and this is my first website. I am trying to use this as a platform where I can publish short articles about sports analytics or any other statistical work that I do.
+Hi my name is Billy Fryer and this is my website! I am trying to use this as a platform where I can publish short articles about sports analytics or any other statistical work that I do.

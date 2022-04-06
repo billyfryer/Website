@@ -10,6 +10,9 @@ intro: |
   I am an undergraduate junior (3rd year student) at North Carolina State University studying Statistics and Spanish. I am from Columbiana, Alabama - a small town halfway between Birmingham and Montgomery.
   
   I currently work with the NC State Women's Basketball and Baseball teams. I am also the President of the Sports Analytics Club at NC State. In the future, I hope to be a sports analyst for a pro sports team.
+  
+  The College of Sciences at NC State did a feature about me! A link to the article is here: [Using Statistics to Support Champions](https://sciences.ncsu.edu/news/using-statistics-to-support-champions/).
+  
 show_outro: false
 outro: |
 ---
