@@ -81,18 +81,14 @@ menu:
       title: About Me
       url: /about/
       weight: 1
-    - name: intRo Tutorials
-      title: intRo Tutorials
-      url: /intRo/
-      weight: 2 
     - name: Projects
       title: Project Portfolio
       url: /projects/
-      weight: 3
+      weight: 2
     - name: Contact
       title: Contact form
       url: /contact/
-      weight: 4
+      weight: 3
 privacy:
   disqus:
     disable: no
