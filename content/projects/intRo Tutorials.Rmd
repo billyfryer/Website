@@ -1,0 +1,38 @@
+---
+title: "intRo Tutorials"
+author: "Billy Fryer"
+date: "4/6/2022"
+categories: ["R"]
+tags: ["intRo Tutorials"]
+---
+
+I have created a series of tutorials to help those new to sports analytics become learn about the programming language R! These tutorials were used during Fall 2021 to help teach the Sports Analytics Club at NC State and were recorded. The link to the recordings as well as the code are linked below:
+
+[Link to Code](https://github.com/b4billy/intRo-Tutorials)
+[Link to Recordings](https://www.youtube.com/watch?v=rE4ah0nBouY&list=PLzfY2UeNJip_GBjX8xEcRcc9omZjl1jFU)
+
+The topics covered in each tutorial are listed below:
+
+**intRo 1- Basics of R**: This video includes coding basics such as data structures, data types, good commenting practices, and how to use the help function. Skills also taught are tidyverse functions useful for manipulating data such as select() and mutate(). In the recording, skip to 17:15.
+
+[Link to Code](https://github.com/b4billy/intRo-Tutorials/blob/main/intRo%201-%20Basics.R)
+
+[Link to Recording](https://www.youtube.com/watch?v=rE4ah0nBouY&list=PLzfY2UeNJip_GBjX8xEcRcc9omZjl1jFU)
+
+**intRo 2- Plotting in ggplot2**: This 1st part of the tutorial describes how to read in data as well as very basic web scraping html tables. The web scraping information is only found in the code, due to time constraints, this was not recorded. The 2nd part of the tutorial is about where to find data on the internet. A lot of the data sources can be found on Brendan Kent's website https://brendankent.com/2021/03/09/free-sports-data-sources/. Finally, this tutorial introduces plotting with the ggplot2 package by walking through the process of making a histogram with data from https://kenpom.com. In the recording, skip to 14:11 
+
+[Link to Code](https://github.com/b4billy/intRo-Tutorials/blob/main/intRo%202%20-%20Data%20and%20Graphing.Rmd)
+
+[Link to Recording](https://www.youtube.com/watch?v=-ot2T-BPN1k&list=PLzfY2UeNJip_GBjX8xEcRcc9omZjl1jFU&index=2)
+
+**intRo 3- Sharing Your Content**: This tutorial is about sharing your code and graphics. This takes users through the basics of using Github and also provides some tips on sharing your graphics on Twitter. In the recording, skip to 9:30
+
+[Link to Code](https://github.com/b4billy/intRo-Tutorials/blob/main/intRo%203-%20Sharing.Rmd)
+
+[Link to Recording](https://www.youtube.com/watch?v=N3IeIrd8yKM&list=PLzfY2UeNJip_GBjX8xEcRcc9omZjl1jFU&index=3)
+
+**intRo 4- R Markdown**: This tutorial is an introduction to R Markdown, primarily making PDFs or HTML files with LaTeX. The tutorial describes text formatting as well as writing code in R Markdown. In the recording, skip to 13:00
+
+[Link to Code](https://github.com/b4billy/intRo-Tutorials/blob/main/intRo%204-%20R%20Markdown.Rmd)
+
+[Link to Recording](https://www.youtube.com/watch?v=N3IeIrd8yKM&list=PLzfY2UeNJip_GBjX8xEcRcc9omZjl1jFU&index=4)
