@@ -9,7 +9,7 @@ cascade:
     show_sidebar_adunit: true
     text_link_label: View all examples
     text_link_url: /projects/
-description: A collection of my some of my sports analytics projects soon to come!
+description: A collection of my some of my sports analytics projects!
 layout: list-grid
 show_author_byline: false
 show_post_date: true
@@ -22,7 +22,6 @@ sidebar:
   show_sidebar_adunit: false
   text_link_label: ""
   text_link_url: ""
-  
 ---
 
 
