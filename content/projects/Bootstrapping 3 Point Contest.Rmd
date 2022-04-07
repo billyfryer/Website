@@ -1,0 +1,35 @@
+---
+title: "3 Point Bootstrapping Contest"
+author: "Billy Fryer"
+date: "1/1/2022"
+categories: ["R"]
+tags: ["Basketball"]
+---
+
+## Overview
+
+Steph Curry is known for 3 Point Shooting Ability and has competed in the 3 Point Contest a total of 7 times in his career so far, winning it twice. I used bootstrap resampling of Curry's attempted 3 Pointers during the 2021-22 Season (up to January 1st, 2022) to predict how he would have done in this year's contest.
+
+## Format of 3 Point Contest
+
+With the 3 Point Contest being littered with sponsorships by companies such as Mtn. Dew, I needed to pick a variation of the 3 point contest that was fairly consistent. I settled on the variation where there are 5 racks of 5 balls each. Each of the first 4 balls on the rack are worth 1 point each while the last ball of each rack is the "money ball" is worth 2 points. There is also a "Money Ball Rack" where *every* ball on the rack is worth 2 points each.
+
+## Distribution of Shots
+
+I pulled all of Steph Curry's 3 Pointers from the NBA website using the *hoopR* package as a part of the SportsDataverse. I then split the shots into 5 categories where the 3 Point Contest Racks would be. The cutoffs were the free throw line as well as both lane lines as shown in the picture below. The sample size from each rack was at least 38 shots or 9% of the total sample size.
+
+*Insert Shot Chart Here*
+
+## Bootstrap Resampling
+
+I then performed the bootstrap resampling, randomly selecting 5 shots from the sample for each rack. This resampling was performed 1,000 times. For Steph Curry specifically, I assigned his "Money Ball Rack" to be the 2nd Rack- the circles on the shot chart above. Steph used this rack as his "Money Ball Rack" during the 2021 3 Point Contest- which he won, so I don't think he would deviate from this strategy. The results from this resampling are in the Chart Below. The Blue Bars are for Racks 1, 3, 4, and 5. The Green Bars represent Curry's "Money Ball Rack", Rack 2. Finally, the Purple Graph is for Curry's total score.
+
+*Insert Distribution Chart Here*
+
+Initially this score distribution looked very low. However, no one allows (or should allow) Curry to shoot so many open 3s during an actual game, so this is definitely an underestimate. Unfortunately, I did not have data that described how closely Curry was guarded during each of these shots.
+
+## Code
+
+All code is in the GitHub Gist linked below. You can easily change the shooter or the year that the data comes from if you wanted to try on your own
+
+[Code for Bootstrapping 3 Point Contest](https://gist.github.com/b4billy/bb54ae006dfd4da73b3819be6c16676a)
