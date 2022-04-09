@@ -1,10 +1,11 @@
 ---
-title: "3 Point Bootstrapping Contest"
+title: "Bootstrapping 3 Point Contest"
 author: "Billy Fryer"
-date: "1/1/2022"
+date: "01/01/2022"
 categories: ["R"]
 tags: ["Basketball"]
 ---
+
 
 ## Overview
 
