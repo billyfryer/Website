@@ -1,6 +1,6 @@
 ---
 title: Billy Fryer's Website
-description: Welcome to my website! I hope to have some new content posted soon!
+description: Welcome to my website! Feel free to contact me if you have any questions about the content posted on this site!
 images:
   - img/Reynolds.jpg
 image_left: false
