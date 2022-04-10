@@ -4,7 +4,6 @@ author: "Billy Fryer"
 date: 4/6/2022
 categories: ["R"]
 tags: ["intRo Tutorials"]
-output: md_document
 ---
 
 I have created a series of tutorials to help those new to sports analytics become learn about the programming language R! These tutorials were used during Fall 2021 to help teach the Sports Analytics Club at NC State and were recorded. The link to the recordings as well as the code are linked below:
