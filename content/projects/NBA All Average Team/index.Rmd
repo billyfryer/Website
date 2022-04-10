@@ -95,14 +95,6 @@ Values for the mean and standard deviation of games that were scheduled to be 9 
 
 A final important disclaimer is the use of two different data providers. There is a possibility that the MLB API measures game length slightly differently than Pointstreak which would cause the analysis to be different. This would need to be explored more carefully in the future.
 
-## Since Original Publication
-
-Since this piece was originally written, I presented it at the NC State Sidewalk Symposium (Pictures Below) and the UCONN Sports Analytics Symposium (![Symposium Website](https://statds.org/events/ucsas2021/index.html)). At that conference I was awarded an Honorable Mention for framing of the question (![Video of Awards Ceremony](https://www.youtube.com/watch?v=61WVWm5XEIs&list=PLSSPLx_KlD8o6GzbLmizFIf46vm9zpuNP&index=11))
-
-![](Sidewalk Symposium/Crouching.JPG)
-![](Sidewalk Symposium/Sidewalk Poster.jpg)
-
-
 ## Sources
 
 Bill Petti (2021). baseballr: Functions for acquiring and
