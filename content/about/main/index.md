@@ -11,7 +11,7 @@ intro: |
   
   I currently work with the NC State Women's Basketball and Baseball teams. I am also the President of the Sports Analytics Club at NC State. In the future, I hope to be a data scientist in the sports analytics field.
   
-  The College of Sciences at NC State did a feature about me! A link to the article is here: [Using Statistics to Support Champions](https://sciences.ncsu.edu/news/using-statistics-to-support-champions/).
+  The NC State College of Sciences did a feature about me! A link to the article is here: [Using Statistics to Support Champions](https://sciences.ncsu.edu/news/using-statistics-to-support-champions/).
   
 show_outro: false
 outro: |
