@@ -1,0 +1,117 @@
+---
+title: "Rule Changes Affecting Extra Inning Game Length in the Pioneer Baseball League"
+author: "Billy Fryer"
+date: 10/18/2022
+categories: ["R"]
+tags: ["Baseball"]
+---
+## Abstract
+
+  In recent years, Major League Baseball has tried to reduce the length of games as well as cut costs of operation. They began attempting to reduce game time in 2018 by implementing a rule in all levels of Minor League Baseball that during extra innings there will be a runner starting on second base. This rule was deemed a success and was then implemented in MLB games. Then, for the 2021 season, Major League Baseball contracted many Minor League Baseball teams around the country to cut costs of player salaries. Many communities that lost their affiliated team established summer collegiate baseball teams or joined already established independent leagues such as the Atlantic League. In the Rocky Mountain Region of the US, one league was completely disbanded. Those teams decided to form an independent league under their previous name: the Pioneer League.
+
+  Following the lead of Major League Baseball, the Pioneer Baseball League announced that they too would change the rules for extra innings for the 2021 season in an attempt to reduce game length. Instead of traditional baseball extra innings, the league opted for a “Knockout Round” where each team would send a player to compete in a sudden death homerun derby, effectively ending the game in a similar fashion to penalty kicks in soccer. This proposes a unique question of which form of tiebreaker (normal extra innings, extra innings starting with a runner on second, and this Knockout Round) leads to a quicker conclusion of the game after a regulation 9 innings was played. Using box score data from the Pioneer Baseball League, this paper models the total amount of game time of games that went into extra innings compared to the game time of games that did not go into extra innings, broken up by the rule in place for extra innings.
+
+## Relevant History of the Pioneer Baseball League
+
+The current Pioneer Baseball League [PBL] was founded in 1939 in the Rocky Mountain region of the United States. In 1964, the PBL became associated with rookie level Minor League Baseball [MiLB]. The league remained at the rookie level for the rest of its affiliated years. Throughout the years, the league has maintained teams in Montana, Idaho, Colorado and Utah ("League History").
+
+Minor League Baseball has been a training ground for future Major League Baseball [MLB] players, umpires and rules for many decades and the PBL is no exception. Major League Baseball announced that they would be experimenting with a new rule for extra innings in all levels of MiLB beginning in 2018 (Daniels 2018). Per this 2018 rule, the batter in position prior to the leadoff batter for the inning will start any extra inning as a runner on second base. The driving goal behind this change was to reduce the length of time that extra inning games take or to end the game quicker. By starting with a runner on second, there is a much higher chance that a run will be scored than without a runner on base. This rule was later implemented at the MLB level (West 2020).
+
+Announced in February 2021, MLB made changes to their minor league affiliate structure ("MLB Announces Minor League Baseball Teams" 2021). Unfortunately, this included the contraction of many MiLB teams around the nation. These contractions would be based on a variety of factors including facilities and proximity to MLB teams ("MLB Announces Minor League Baseball Teams" 2021). Given that rookie level baseball was at the time the lowest level of affiliated baseball, the facilities at many, if not all, PBL stadiums were not up to the standard set by Major League Baseball. Of course, due to the COVID-19 Pandemic, there was no MiLB season in 2020 for those teams to have any money to afford stadium renovations to meet MLB standards. In addition, there are very few Rocky Mountain region based MLB teams for which a PBL team could be affiliated. This ruined the chance of being affiliated based on proximity to a MLB team. Thus, when the official list of teams to be contracted came out, every team in the PBL was on it. Rather than allow empty stadiums in their cities, the teams of the formerly affiliated Pioneer Baseball League came together and were joined by the Boise Hawks, previously of the Northwest League, to form a new independent league under the previous name.
+
+Being free from MLB rule, league operators decided to change the extra inning rules even more than before. They adopted what they called a "Knockout Round". In a similar manner to penalty kicks in soccer, each team would send one batter to the plate after the conclusion of the scheduled innings to participate in a competition to hit the most home runs on 5 swings as they can. If there was a tie after 5 swings, then the process would repeat for 5 more swings until a winner was decided ("Pioneer League Installs New Rules for 2021" 2021). This rule was not in place for the playoffs and instead, normal extra innings (without a runner starting on second base) were implemented.
+
+Given their history, the PBL provides the unique opportunity to directly compare and contrast 3 different styles of extra innings and their direct effect on game time.
+
+
+
+## Defining Terminology
+
+The three extra inning rules studied in this paper are as follows:
+
+The **"Normal Extra Innings Rule"** occurred when the score was tied after regulation. With this rule, innings after regulation are played just as they were during regulation. This occurred every year prior to the 2018 season. For our data, this is the 2016 and 2017 seasons.
+
+The **"Runner on Second Rule"** also occurred when the score was tied after regulation as well. With this rule, innings after regulation are started with a runner on second base. This runner is the batter prior to the lead-off batter for the upcoming inning. This rule took place during the 2018 and 2019 seasons.
+
+The **"Knockout Round Rule"** occurred when the score was tied after regulation as well. The Knockout Round consists of both teams selecting a batter from their team to participate in a Homerun Derby style competition. Each selected batter is given 5 swings and the number of homeruns from those swings is tallied. The team of the batter that hit the most number of homeruns in those 5 swings is declared the winner of the game. In case of a tie after 5 swings, this process of 5 swings is repeated until a winner is decided. This rule took place during the 2021 season.
+
+**"Scaled Minutes"** is defined as 9 times the length of the game in minutes required for that game divided by is the number of innings scheduled to be played. There were several occasions across multiple seasons where 7 inning games were scheduled as double headers due to rain outs. This data is still useful, but needs to put on a proper scale of 9 innings.
+
+## Data
+
+The data comes from 2 different sources. Prior to 2020, the Pioneer Baseball League was affiliated with Major League Baseball. By adapting code from the baseballr package created by Bill Petti, historical data from the MLB API was available for the 2016-2019 seasons. During the 2016 and 2017 seasons, the extra innings rule for the PBL was the "Normal Extra Innings Rule". During the 2018 and 2019 seasons, the PBL operated under the "Runner on Second Rule" for extra innings.
+
+For the 2021 season, the Pioneer Baseball League was an independent league and their data was not available in the MLB API. The data provider for that season was pointstreak.com. On the Pointstreak website, text files containing extended box scores for all games during the regular season and the playoffs had game time available. This data was scraped into R to use for this analysis.
+
+One data point from the 2021 Season was excluded from the analysis. On September 11, 2021, the Boise Hawks played the Ogden Raptors in the Pioneer Baseball League playoffs. The game went to extra innings which were competed according to the "Normal Extra Innings Rule" unlike during the 2021 regular season where the "Knockout Round" was in place. The league announced this change for the playoffs before the season started hence why this occurred. Since it did not follow the rules of the rest of the season, this data point was dropped. All other games from the 2016, 2017, 2018, 2019, and 2021 season were used.
+
+## Exploratory Data Analysis
+
+To evaluate which rule is most efficient, the length of games for that season that did not go to extra innings are compared to the length of games that did utilize extra innings or the Knockout Round. 
+
+![](Plots/Extra Inning Rules Distribution All Games.png)
+
+The figure above is an exploratory data analysis plot showing the density curves of game time in scaled minutes, broken apart by extra inning rule. One peculiar finding that is very noticeable in these graphs is that the median game time for games standardized to 9 innings is much higher when the Knockout Round Rule is in effect, but the Knockout Round was not needed. There are multiple factors that contribute to this that are explained later. 
+
+The main takeaway from this plot is that there appears to be significant shifts in game time when the Runner on Second and Normal Extra Innings Rules were in effect. This can be seen by comparing the two yellow curves to one another and the two blue curves to one another in each of the faceted plots. In contrast, when the Knockout Round Rule is in effect, that appears not to be the case. Both of the red density curves appear to peak near the same value.
+
+![](Plots/Normal Extra Innings All Games.png)
+
+![](Plots/Runner on Second All Games.png)
+![](Plots/Knockout Round All Games.png)
+![](Plots/Violin Faceted by Rule.jpg)
+
+Another way at looking at these differences is with the violin plot above. The crossbars represent the median game length in scaled minutes. This further solidifies the prior thoughts from the previous graphic about the significant time differences between games that needed extra innings in contrast to the games that did not. Long tails for games that ended in regulation are present for all three extra inning rules. These are mostly from games where either one or both teams scored a lot of runs which caused the game to drag out.
+
+The other 3 graphics are density curves broken up by extra inning rule. The purple curves represent where extra inning rules did not come into effect. The green curves represent where extra inning rules came into effect. For the Normal Extra Inning Rule and the Runner on Second Rule, the median game length is shorter for games that did not go into extra innings than the games that did go into extra innings. This is as expected, because games that go to extra innings involve more baseball being played and should take longer. However, for the Knockout Round graph in the bottom right, these curves greatly overlap forming the gray color. This will be discussed in the following section.
+
+## Methodology
+
+To analyze this problem, three first order linear models were fit with the response variable being scaled game time in minutes. One model was created for each different extra inning rule. Scaled game time in minutes, to be referred to as "Scaled Minutes" is defined as 9 times the length of the game in minutes required for that game divided by is the number of innings scheduled to be played. Scaling the minutes this way gave us the opportunity to include double header games, that were make up games for previous dates that had been rained out or were canceled for some other reason. These double headers were typically scheduled for 7 innings in length. The intercept and slope coefficients are displayed in the table below for each different extra inning rule.
+
+![](Plots/Coefficient Matrix.png)
+
+After fitting models for each extra inning rule, the Analysis of Variance procedure was performed on each model to determine the significance of each slope coefficient. For the Normal Extra Innings and the Runner on Second rules, the p-value calculated is less than the alpha significance level of alpha = 0.05 which means that there is a statistically significant difference in game time caused by extra innings. 
+
+However, for the games where the Knockout Round was the rule for extra innings, the p-value when testing the null hypothesis Beta 1 = 0 is .235, which is not significant at an alpha significance level of alpha = 0.05. This means that the null hypothesis cannot be rejected. 
+
+This insignificance of the slope coefficient for the Knockout Round model is actually highly important. If there is no statistical significance, the hypothesis that there is no difference in game time between games that did not got to extra innings and those that used the Knockout Round when that rule was in effect could possibly be true. The implication being that the Knockout Round could possibly the most efficient form of extra innings out of the rules presented. Unfortunately, this conclusion is presented with extreme caution because there are other factors such as small sample size that may have influence over these findings. These other factors will be discussed in the following section.
+
+## Limitations
+
+Several limitations were present during this study. The most relevant issue is the difference in quality of play between players in independent leagues compared to rookie league players. This is likely the underlying cause to many of the issues - including small sample size for games where the Knockout Round was needed during the 2021 season.
+
+After becoming an independent league, the Pioneer Baseball League expanded their schedule to include more games for the 2021 season. The Normal Extra Innings Extras Rule contains data from the 2016 and 2017 seasons. The Runner on Second Extras Rule contains data from the 2018 and 2019 seasons. The Knockout Round Extras Rule was in effect for only the 2021 season. Even though the 2021 season is longer than past seasons, it is not as long as 2 previous seasons, which explains part of the difference in sample sizes.
+
+![](Plots/Extra Innings Rate.png)
+
+Referencing the chart above, the Knockout Round was only half as likely to occur than extra innings under previous rules. This caused an already limited number of games where the Knockout Round extra inning rule was in place to become even more limited. There is no explanation why this may be the place besides perhaps the difference in skill levels of players between affiliated and unaffiliated baseball.
+
+![](Plots/Mean and SD Chart.png)
+
+Another very important difference between games where the Knockout Round was in place versus the other two extra inning rules is the average length of games without extra innings. These are represented in the above table in rows with a black x surrounded in a white box with black border. For the seasons where the Normal Extra Innings and the Runner on Second Rule was in effect, the average game length where extra innings did not occur was around 170 minutes. In contrast, during the 2021 season when the Knockout Round extra inning rule was in effect the average game time was 31 minutes higher. Officials from the PBL have stated that this is partially due to poor pitching but that there might be other factors in play as well (Rachac 2021). This is also visible by looking at the graph on page 4.
+
+Values for the mean and standard deviation of games that were scheduled to be 9 innings in length were also provided for comparison sake. This values are similar to the ones from the analysis of the scaled minutes, so the entire analysis was carried out only with these scaled minutes. The games that were scheduled to be 9 innings is a proper subset of the games used for the scaled minutes.
+
+A final important disclaimer is the use of two different data providers. There is a possibility that the MLB API measures game length slightly differently than Pointstreak which would cause the analysis to be different. This would need to be explored more carefully in the future.
+
+## Sources
+
+Bill Petti (2021). baseballr: Functions for acquiring and
+  analyzing baseball data. R package version 0.8.5.
+  https://billpetti.github.io/baseballr/
+
+Daniels, Tim. “Minor League Baseball to Put Runners on 2nd Base to Start Extra Innings.”
+*Bleacher Report*, Bleacher Report, 14 Mar. 2018, https://bleacherreport.com/articles/2764408-minor-league-baseball-to-put-runners-on-2nd-base-to-start-extra-innings.
+
+“League History.” MiLB.com, Minor League Baseball, https://www.milb.com/pioneer/history.
+
+“MLB Announces Minor League Baseball Teams.” *MiLB.com*, Major League Baseball, 15 Feb. 2021, https://www.milb.com/news/mlb-announces-minor-league-baseball-teamsteams-will-be-part-of-new-model-to-bett.
+
+“On Pointstreak Sports Technologies.” Pointstreak Sports Technologies, https://pointstreak.com/.
+
+“Pioneer League Installs New Rules for 2021.” MiLB.com, Minor League Baseball, 27 Apr. 2021, https://www.milb.com/pioneer/news/pioneer-league-installs-new-rules-for-2021.
+
+Rachac, Greg. “Independent Pioneer League Managed Challenges in 2021, Eyes Improvement, Expansion.” 406 MT SPORTS, 406mtsports.Com, 22 Sept. 2021, https://406mtsports.com/baseball/pioneer-league/independent-pioneer-league-managed-challenges-in-2021-eyes-improvement-in-future/article_73c904e3-8c80-502d-82ef-ee93c265e334.html.
+
+West, Jenna. “Report: MLB to Use Runner-on-Second Rule in Extra Innings.” *Sports Illustrated*, Sports Illustrated, 23 June 2020, https://www.si.com/mlb/2020/06/23/mlb-runner-on-second-rule-extra-innings-2020-season.
