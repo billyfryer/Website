@@ -4,7 +4,7 @@ description: "Here are some of my sports analytics porjects!"
 author: "Billy Fryer"
 show_post_thumbnail: true
 show_author_byline: true
-show_post_date: false
+show_post_date: true
 # for listing page layout
 layout: list-grid # list, list-sidebar, list-grid
 
