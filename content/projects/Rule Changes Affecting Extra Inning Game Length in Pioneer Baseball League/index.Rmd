@@ -97,7 +97,7 @@ A final important disclaimer is the use of two different data providers. There i
 
 ## Since Original Publication
 
-Since this piece was originally written, I presented it at the NC State Sidewalk Symposium (Pictures Below) and the UCONN Sports Analytics Symposium (![Symposium Website](https://statds.org/events/ucsas2021/index.html)). At that conference I was awarded an Honorable Mention for framing of the question (![Video of Awards Ceremony](https://www.youtube.com/watch?v=61WVWm5XEIs&list=PLSSPLx_KlD8o6GzbLmizFIf46vm9zpuNP&index=11))
+Since this piece was originally written, I presented it at the NC State Sidewalk Symposium (Pictures Below) and the UCONN Sports Analytics Symposium ([Symposium Website](https://statds.org/events/ucsas2021/index.html)). At that conference I was awarded an Honorable Mention for framing of the question ([Video of Awards Ceremony](https://www.youtube.com/watch?v=61WVWm5XEIs&list=PLSSPLx_KlD8o6GzbLmizFIf46vm9zpuNP&index=11))
 
 ![](Sidewalk Symposium/Crouching.JPG)
 ![](Sidewalk Symposium/Sidewalk Poster.jpg)
