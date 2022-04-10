@@ -1,6 +1,6 @@
 ---
 title: Projects
-description: "Here are some of my sports analytics porjects!"
+description: "Here are some of my sports analytics projects!"
 author: "Billy Fryer"
 show_post_thumbnail: true
 show_author_byline: true
