@@ -15,6 +15,7 @@ intro: |
   
 show_outro: false
 outro: |
+
 ---
 
 ** index doesn't contain a body, just front matter above.
