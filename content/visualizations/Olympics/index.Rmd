@@ -1,0 +1,52 @@
+---
+title: "Olympics Visualizations"
+author: "Billy Fryer"
+categories: ["Visualizations"]
+tags: ["Olympics"]
+---
+
+# Tokyo 2020
+
+![](Plots/Tokyo 2020 Output/Day 0- Good and Long Time.png)
+![](Plots/Tokyo 2020 Output/Day 1- Lovable Losers.png)
+![](Plots/Tokyo 2020 Output/Day 2- Team USA Volleyball.png)
+![](Plots/Tokyo 2020 Output/Day 3- 13 Year Olds.PNG)
+![](Plots/Tokyo 2020 Output/Day 4- US v Japan Softball.png)
+![](Plots/Tokyo 2020 Output/Day 5- US-Aussie Swimming.png)
+![](Plots/Tokyo 2020 Output/Day 6- Golden Countries.png)
+![](Plots/Tokyo 2020 Output/Day 7- Medal Streak.png)
+![](Plots/Tokyo 2020 Output/Day 8- Height Differential.png)
+![](Plots/Tokyo 2020 Output/Day 8- Overall Height Differential.png)
+
+![](Plots/Tokyo 2020 Output/Day 9- Top 10 Performances.png)
+![](Plots/Tokyo 2020 Output/Day 10- Sex Disparity.png)
+![](Plots/Tokyo 2020 Output/Day 11- Female Age Distribution.png)
+![](Plots/Tokyo 2020 Output/Day 11- Male Age Distribution.png)
+
+![](Plots/Tokyo 2020 Output/Day 12- Home State Map.png)
+![](Plots/Tokyo 2020 Output/Day 13- Winter and Summer Winners.png)
+![](Plots/Tokyo 2020 Output/Day 14- W Marathoners by Height.png)
+![](Plots/Tokyo 2020 Output/Day 15- Percent Winners.png)
+![](Plots/Tokyo 2020 Output/Day 16- USA WBB Dominance.png)
+
+# Beijing 2022
+
+![](Plots/Beijing 2022 Output/Day 0- What You've Already Missed in Beijing 2022.gif)
+![](Plots/Beijing 2022 Output/Day 1 - Beijing 2022 Predictions.png)
+![](Plots/Beijing 2022 Output/Day 2- Sex Disparity.png)
+![](Plots/Beijing 2022 Output/Day 3 - Largest Delegations at Beijing 2022.png)
+![](Plots/Beijing 2022 Output/Day 4- Biathlon Mixed Relay Shooting Performances.png)
+![](Plots/Beijing 2022 Output/Day 5- Power Play Efficiency W Hockey.png)
+![](Plots/Beijing 2022 Output/Day 5- Power Play Efficiency W Hockey Flipped.png)
+
+![](Plots/Beijing 2022 Output/Day 6- West vs East Coast Snow.png)
+![](Plots/Beijing 2022 Output/Day 7 - Shaun White.png)
+![](Plots/Beijing 2022 Output/Day 8 - Freestyle Skiing Mixed Team Ariels Finals.png)
+![](Plots/Beijing 2022 Output/Day 9 - Old Gold.png)
+![](Plots/Beijing 2022 Output/Day 10 - Canada's W Hockey Dominance.png)
+![](Plots/Beijing 2022 Output/Day 11- Monobob Results.gif)  
+![](Plots/Beijing 2022 Output/Day 12- Best Winter Performances.png)
+![](Plots/Beijing 2022 Output/Day 13 - W Biathlon Time vs Penalty.png)
+![](Plots/Beijing 2022 Output/Day 14 - M Curling Round Robin Win Margins.png)
+![](Plots/Beijing 2022 Output/Day 15 - Bo Brothers Biathlon Dominance.png)
+![](Plots/Beijing 2022 Output/Day 16 - Figure Skating Pairs.gif)
