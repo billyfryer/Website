@@ -1,0 +1,16 @@
+---
+title: "FHSTR Package"
+author: "Billy Fryer"
+date: 2022-05-17
+categories: ["R"]
+tags: ["Olympics"]
+---
+
+
+
+<p>One of my goals before graduating college was to create my own R package. At times the goal has faded into the background behind new side projects and classes but the dream was always still there. One of those side projects was during the Tokyo 2020 Olympics, I did a visualization for every day of the competition. My skills improved tremendously and I knew I <em>had</em> to do it again for the 2022 Beijing Winter Games.</p>
+<p>So I started and quickly learned that I needed modern data. The data I was using from Kaggle was last updated in 2016 so it was missing both the 2018 and 2022 data (in terms of Winter Games) which makes it pretty hard to do any sort of “Top 10” rankings. I began copying and pasting data into Excel sheets for my first few graphs to get 2022 Data but that just became too time consuming, so I began looking for ways to web scrape the data from the Olympics website.</p>
+<p>That was pretty much impossible. My {rvest} skills were not near good enough and when I tried to look for any API it was nonexistent (well, at least non accessible). I was bummed for a bit but knew there had to be some way to get this data. On the first Tuesday of the Games (~ Day 5), I was in class on Zoom so my mind started to wander about this data and I had the idea to look on the NBC Website for Olympics Data. NBC is the US broadcaster of the Olympics so if anyone was going to have that data, they would. I patiently wait until our next break (it was a 3 hour class on Tuesday nights, breaks were needed) and looked and there was the data!</p>
+<p>Over the next few months, I worked on pulling all the raw json files into a repository. I then began parsing the json files into usable CSVs. After my semester ended I finally compiled the data into a package which took a bit. I had to rescrape the JSON files and reparse many times to get it exactly right: accents on names, files in the right folders, etc. It was very time consuming, but with no classes I had nothing else to do. Finally, I shared my package and made a pkgdown site for it.</p>
+<p>pkgdown Site link: <a href="https://b4billy.github.io/FHSTR" class="uri">https://b4billy.github.io/FHSTR</a></p>
+<p>GitHub Repo link: <a href="https://github.com/b4billy/FHSTR" class="uri">https://github.com/b4billy/FHSTR</a></p>
