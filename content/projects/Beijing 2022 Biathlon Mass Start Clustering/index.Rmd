@@ -26,7 +26,7 @@ blogdown::shortcode("youtube", "ZF2gCGLmBlk")
 
 ## Sex of Participants
 
-This project includes both men and women together in one analysis. I wanted a way to compare men and women athletes that would be fair considering that male skiiers ski faster than female skiiers in long distance poling events similar to the skiing portion of the biathlon (Gender differences in endurance...). In the Mass Start event, women ski 12.5 kilometers (2.5 kilometers per lap) compared to the men's 15 kilometers race (3 kilometers per lap) (Biathlon World Article). When performing this analysis, I decided to assume that the differences in skiing ability between men and women athletes is already accounted for by the differing distances in the races.
+This project includes both men and women together in one analysis. I wanted a way to compare men and women athletes that would be fair considering that male skiers ski faster than female skiers in long distance poling events similar to the skiing portion of the biathlon (Gender differences in endurance...). In the Mass Start event, women ski 12.5 kilometers (2.5 kilometers per lap) compared to the men's 15 kilometers race (3 kilometers per lap) (Biathlon World Article). When performing this analysis, I decided to assume that the differences in skiing ability between men and women athletes is already accounted for by the differing distances in the races.
 
 ## Data
 
