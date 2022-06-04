@@ -1,0 +1,103 @@
+---
+title: "Beijing 2022 Biathlon Mass Start Clustering"
+author: "Billy Fryer"
+date: 2022-05-24
+categories: ["R"]
+tags: ["Olympics", "Biathlon"]
+---
+
+## Introduction
+
+Biathlon is a sport that combines the two disciplines of cross country skiing and shooting. This analysis chooses to focus on the Mass Start format of the biathlon discipline. In the Mass Start, all 30 contestants are lined up and begin the race at the exact same time and are on the course along side their competitors. In other variations, such as the Individual or Pursuit, contestants have staggered starts. For the shooting portion of the biathlon, the athletes shoot at 5 targets from 50 meters away after each of the first four laps (Biathlon 101). After completing laps 1 and 2, the athletes shoot at a target with a diameter of 45 millimeters from the prone or laying down position (Biathlon 101). After laps 3 and 4, the athletes shoot at a target with a diameter of 115 millimeters from a standing position (Biathlon 101). After every shooting range session, biathletes must ski a 150 meter penalty loop for each shot they miss (Biathlon World Article). After their final range session, the athletes complete one more lap and finish the race. The biathlete that completes the course the fastest is the winner.
+
+For those interested in watching the Mass Start Events from the 2022 Beijing Olympics, they are linked below:
+
+**Biathlon - Men's 15km Mass Start from the Olympics YouTube Page**
+
+```{r, eval = TRUE, echo = FALSE}
+blogdown::shortcode("youtube", "B6uXE5-SPbI")
+```
+
+**Biathlon - Women's 12.5km Mass Start from the Olympics YouTube Page**
+
+```{r, eval = TRUE, echo = FALSE}
+blogdown::shortcode("youtube", "ZF2gCGLmBlk")
+```
+
+## Sex of Participants
+
+This project includes both men and women together in one analysis. I wanted a way to compare men and women athletes that would be fair considering that male skiiers ski faster than female skiiers in long distance poling events similar to the skiing portion of the biathlon (Gender differences in endurance...). In the Mass Start event, women ski 12.5 kilometers (2.5 kilometers per lap) compared to the men's 15 kilometers race (3 kilometers per lap) (Biathlon World Article). When performing this analysis, I decided to assume that the differences in skiing ability between men and women athletes is already accounted for by the differing distances in the races.
+
+## Data
+
+The data for this project comes from the FHSTR package that I created. This package contains data from NBC's API for all events in the 2022 Beijing Winter Olympic Games. For more information about the FHSTR package, visit <https://b4billy.github.io/FHSTR/>.
+
+For this analysis, data for all 30 participants from both the men and women's race were used for a total of 60 athletes. Three variables were used: number of shooting misses in the prone or laying down position, number of shooting misses in the standing position, and total time taken to complete the event. These variables were centered and scaled for analysis. Unfortunately, this was all the data available for analysis. If the data were available, more variables to consider would include time spent on range, time spent skiing penalty loops, and time in between shots among others. This data would further help distinguish what areas of the events biathletes could focus on to improve their times.
+
+## Modeling
+
+I decided to use k-means clustering to group these athletes together. In this case, the k-means algorithm iteratively groups athletes together until reaching an equilibrium. To determine the proper number of clusters, I plotted the total within-clusters sum of squares and determined that the proper number of clusters to use should be 5.
+
+![](viz/Elbow%20Plot.png)
+
+I then ran the k-means algorithm to assign athletes to the 5 clusters. Each of these clusters appears to be pretty distinct with no overlapping by looking at the plot of the first two principal components below. Cluster names are arbitrarily assigned and have no relation with how well the biathletes in one cluster are compared to other biathletes in other clusters.
+
+![](viz/Cluster%20Plot.png)
+
+The table below shows average values for each cluster for the factors used in the model as well as a few others. For average rank, I left each athlete with their original rank separated by gender. Therefore, the fastest male and female athlete both receive a rank of 1 while the slowest athlete of each sex receive a rank of 30. The clusters seem pretty balanced in size with the exception of cluster 1 which is explained later.
+
+![](viz/Cluster%20Averages.png)
+
+An interactive 3D scatter plot of all athletes in the study is below. Along the axes are standing position shooting misses, prone position shooting misses, and skiing times in minutes as these were the three variables used in the clustering. Hover over a point to see the athlete's name as well as see their other stats such as prone shots missed, standing shots missed, time raced as well as the cluster to which they were assigned. The plot can also be moved around to be looked at from different perspectives as well as zoomed in on as needed.
+
+![](viz/3D%20Plot.html){width="700px" height="700px"}
+
+As a reference guide, the table below includes all 60 biathetes that competed in the mass start event. They are arranged by cluster and then by time. Each cluster is discussed individually afterwards.
+
+![](viz/All%20Biathletes.png)
+
+### Cluster 1
+
+This cluster appears to have captured the two athletes who placed 29th and 30th in the women's race and were significantly slower than all other participants. These two also missed significantly more shots than the rest of the contestants especially from the standing position. These biathletes were outliers compared to the rest of the field which explains the imbalance in cluster size.
+
+![](viz/Cluster%201%20Table.png)
+
+### Cluster 2
+
+Athletes in cluster 2 were very good shooting from the prone position - on average only missing 0.6 shots. This is more than 1.5 shots lower than the next closest cluster. However, their shooting from the standing position is above average (when ignoring the outliers of cluster 1) which makes their average number of penalty laps pretty much equal to the rest of the field. These contestants also appear to have skiied well during the 5 laps, although the data to prove this (total skiing time minus penalty loop time) is not available. Overall, this cluster ended up with the second fastest average time with an average rank of 11.1 and contained many of the top women's times.
+
+![](viz/Cluster%202%20Table.png)
+
+### Cluster 3
+
+Cluster 3 is a rather interesting mix of biathletes. The group contains the lower finishes in the men's race and the middle of the pack finishes in the women's race. Their shooting from the standing position seems to be what held these biathletes back. Outside of cluster 1, this cluster had the highest average number of misses from the standing position. Although the data is not present, it can be inferred by total race time that these biathletes couldn't overcome those penalty loops as their skiing times are higher in comparison to those of athletes in other clusters.
+
+![](viz/Cluster%203%20Table.png)
+
+### Cluster 4
+
+Cluster 4 is where the elite biathletes reside. These biathletes averaged a full miss less than the rest of the field. This helped avoid penalty laps which can really help shave time off their race. Cluster 4 contains the top 7 times in the men's event and the top time in the women's event as well. With an average rank of 6.4, these were the athletes to watch to see who took home the gold, silver and bronze.
+
+![](viz/Cluster%204%20Table.png)
+
+### Cluster 5
+
+Biathletes in cluster 5 were pretty average. Although they were below average on number of prone shots missed, they shot decent enough from the standing position to have a mean 6.3 missed shots. They finished with an average rank of 20.2 which is very similar to cluster 3. This makes sense as cluster's average time was 17 seconds faster than that of cluster 3. The main difference between these two clusters was the change in ability to hitting shots from the prone position. It also appears as if the skiing ability of these athletes on the full loops may have been pretty good for members of cluster 5 but again, more data would be needed to confirm this.
+
+![](viz/Cluster%205%20Table.png)
+
+## Author's Notes
+
+I really enjoyed doing this project as it allowed me to do a couple different things. I was able to use the FHSTR package that I created which I find pretty cool. This project also allowed me to analyze the sport that helped me fall in love with the Winter Olympics back in 2010 (the first Olympic Games I can remember). Of course I want to say thanks to everyone that helped me out with regards to the data visualizations and to Sean Sullivan for helping me edit this!
+
+## Sources
+
+Biathlon 101: <https://www.nbcolympics.com/news/biathlon-101-rules>
+
+Biathlon World Article: <https://www.biathlonworld.com/inside-ibu/sports-and-event/biathlon-mass-start>
+
+*Gender differences in endurance performance by elite cross-country skiers are influenced by the contribution from poling* by Ø. Sandbakk, G. Ettema, H.-C. Holmberg. Published in Scandinavian Journal of Medicine and Science in Sports
+
+Men's 15kilometers Mass Start video from the Olympics YouTube Page: <https://www.youtube.com/watch?v=B6uXE5-SPbI>
+
+Women's 12.5kilometers Mass Start video from the Olympics YouTube Page: <https://www.youtube.com/watch?v=ZF2gCGLmBlk>
