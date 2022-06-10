@@ -33,4 +33,4 @@ Initially this score distribution looked very low. However, no one allows (or sh
 
 All code is in the GitHub Gist linked below. You can easily change the shooter or the year that the data comes from if you wanted to try on your own
 
-[Code for Bootstrapping 3 Point Contest](https://gist.github.com/b4billy/bb54ae006dfd4da73b3819be6c16676a)
+[Code for Bootstrapping 3 Point Contest](https://gist.github.com/billyfryer/bb54ae006dfd4da73b3819be6c16676a)

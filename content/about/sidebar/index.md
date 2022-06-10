@@ -7,7 +7,7 @@ show_social_links: true # specify social accounts in site config
 link_list_label: "Social Media" # bookmarks, elsewhere, etc.
 link_list:
 - name: GitHub
-  url: https://github.com/b4billy
+  url: https://github.com/billyfryer
 - name: Twitter
   url: https://twitter.com/_b4billy_
 - name: LinkedIn

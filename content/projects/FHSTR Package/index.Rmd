@@ -13,6 +13,6 @@ That was pretty much impossible. My {rvest} skills were not near good enough and
 
 Over the next few months, I worked on pulling all the raw json files into a repository. I then began parsing the json files into usable CSVs. After my semester ended I finally compiled the data into a package which took a bit. I had to rescrape the JSON files and reparse many times to get it exactly right: accents on names, files in the right folders, etc. It was very time consuming, but with no classes I had nothing else to do. Finally, I shared my package and made a pkgdown site for it.
 
-pkgdown Site link: https://b4billy.github.io/FHSTR
+pkgdown Site link: https://billyfryer.github.io/FHSTR
 
-GitHub Repo link: https://github.com/b4billy/FHSTR
+GitHub Repo link: https://github.com/billyfryer/FHSTR

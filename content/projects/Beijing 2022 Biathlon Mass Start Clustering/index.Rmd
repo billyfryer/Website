@@ -30,7 +30,7 @@ blogdown::shortcode("youtube", "ZF2gCGLmBlk")
 
 ## Data
 
-The data for this project comes from the FHSTR R package that I created. This package contains data from NBC's API for all events in the 2022 Beijing Winter Olympic Games. For more information about the FHSTR package, visit <https://b4billy.github.io/FHSTR/>. If you are not an R user, the data is available in the following GitHub Repo: <https://github.com/b4billy/Beijing-Olympics-Data-Repo>.
+The data for this project comes from the FHSTR R package that I created. This package contains data from NBC's API for all events in the 2022 Beijing Winter Olympic Games. For more information about the FHSTR package, visit <https://billyfryer.github.io/FHSTR/>. If you are not an R user, the data is available in the following GitHub Repo: <https://github.com/billyfryer/Beijing-Olympics-Data-Repo>.
 
 For this analysis, data for all 30 participants from both the men and women's race were used for a total of 60 athletes. Three variables were used to cluster the athletes together: number of shooting misses in the prone or laying down position, number of shooting misses in the standing position, and total time taken to complete the event. These variables were centered and scaled for analysis. Unfortunately, this was all the data available for analysis. If the data were available, more variables to consider would include time spent on range, time spent skiing penalty loops, and time in between shots among others. This data would further help distinguish what areas of the events biathletes could focus on to improve their times.
 
