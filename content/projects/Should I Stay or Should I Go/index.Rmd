@@ -1,18 +1,20 @@
 ---
 title: "Should I Stay or Should I Go"
 author: "Billy Fryer"
-date: 2022-10-08
+date: 2022-09-08
 categories: ["R"]
 tags: ["Baseball", "SMT Data Challenge", "Tracking Data"]
 ---
 
 # Introduction
 
-|    With 2 outs in the bottom of the ninth, the Biloxi Shuckers (AA MIL) were batting down 1 to the Montgomery Biscuits (AA Rays) in a July game very important for the 2nd Half Divisional Title. With runners on first and second - both with decent speed - Thomas Dillard singled to right field. The runner on second was waved home and right fielder Kameron Misner's throw was on target to get the runner by two steps to end the game. The screenshot below is from MiLB TV.
+|    With 2 outs in the bottom of the ninth, the Biloxi Shuckers (AA MIL) were batting down 1 to the Montgomery Biscuits (AA Rays) in a July game coming down the stretch for the 2nd Half Divisional Title. With runners on first and second - both with decent speed - Thomas Dillard singled to right field. The runner on second was waved home and right fielder Kameron Misner's throw was on target to get the runner by two steps to end the game. The video below is from MiLB TV.
 
-```{r, echo=FALSE, out.width="90%", fig.align='center'}
-knitr::include_graphics("Graphics/Intro-Screenshot.png")
-```
+<center>
+  <video width="750" height="400" controls>
+    <source src="Graphics/Intro-Video.mov" type="video/mp4">
+  </video>
+</center>
 
 |    In a sport where every game counts, that decision to send the runner could be what keeps Biloxi out of the playoffs. Why not hold the runner at third for a bases loaded situation? In my study, I created a model to evaluate these decisions - whether a runner should stay after advancing one base or attempt to advance two bases (first to third or second to home).
 
