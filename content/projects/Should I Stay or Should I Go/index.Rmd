@@ -142,3 +142,10 @@ Because when there are 3 outs the team switches from offense to defense, the run
 <br> **[(0.482 x 0.88) + 0] - 0.394 = 0.03016**
 
 Although the value is still positive, it is much closer to 0. This means that the risk is very high but still worth taking.
+
+# Shiny App
+
+<center>
+  <iframe id="shinyapp" src="https://b4billy.shinyapps.io/Stay-or-Go-Shiny/" style="border: none; width: 100%; height: 800px" frameborder="0">
+  </iframe>
+</center>
