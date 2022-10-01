@@ -105,6 +105,10 @@ knitr::include_graphics("Graphics/Run-Expectancies.png")
 
 |    This also has applications outside of team strategy. As someone with past umpiring experience, knowing which teams are more aggressive on the basepaths is important to make sure you can be in the best possible position to make the right call. If one team, or even individual player is known to be more aggressive, then the other umpires can be able to give the umpire that makes the call extra backup if a challenge occurs.
 
+# Reference
+
+Marchi, M., Albert, J., & Baumer, B. S. (2019). Chapter 5: 	Value of 	Plays Using Run Expectancy. In Analyzing 	Baseball Data with R (Second, pp. 111–136). essay, 	Taylor & Francis Group, LLC.
+
 \newpage
 
 # Appendix A: Modeling Expanded
@@ -121,13 +125,13 @@ knitr::include_graphics("Graphics/Model-Accuracy.png")
 
 To calculate the change in run expectancy, the following formula is used:
 
-<br> **[RE(Success) x Pr(Success) + RE(Failure) x (1-Pr(Success))] - RE(No Attempt)**
+<br> **[RE(Success) x Pr(Success) + RS(Success)] + RE(Failure) x (1-Pr(Success)) + RS(Success)] - [RE(No Attempt) + RS(No Attempt)]**
 
-where **RE()** is the run expectancy of a given game state and **Pr(Success)** is the probability of advancing 2 bases as given by the model.
+Where: **RE()** is the run expectancy of a given game state, **Pr(Success)** is the probability of advancing 2 bases as given by the model and **RS()** represents the number of runs scored on the play.
 
-|    The first half of this formula gives the expected run expectancy given that the runner attempts to advance to the target base. The second half of the formula (**RE(No Attempt)**) is the run expectancy given the runner stops at the intermediate base. This helps determine if the reward of the risk is worth more than staying put. Let's work out an example together - the Go Example. As stated previously, our game state before the play is "100" because the only runner on was on first base and we assume that there was 1 out. From the model, the probability that the runner would be safe at 3rd base is 88%. Now let's look at the possible outcomes. If the runner decides to try and advance 2 bases, this means our possible game states after the throw are "101, 1 out" if the runner is safe or "100, 2 outs" if the runner is thrown out. If the runner decides not to attempt to take third, the games state will be "110, 1 out". If the information is plugged into the formula, it looks like this.
+|    The first half of this formula gives the expected run expectancy given that the runner attempts to advance to the target base. The second half of the formula (**RE(No Attempt)**) is the run expectancy given the runner stops at the intermediate base. This helps determine if the reward of the risk is worth more than staying put. Let's work out an example together - the Go Example. As stated previously, our game state before the play is "100" because the only runner on was on first base and we assume that there was 1 out. From the model, the probability that the runner would be safe at 3rd base is 88%. Now let's look at the possible outcomes. If the runner decides to try and advance 2 bases, this means our possible game states after the throw are "101, 1 out" if the runner is safe or "100, 2 outs" if the runner is thrown out. If the runner decides not to attempt to take third, the games state will be "110, 1 out". Regarless of situation, no runs are scored. If the information is plugged into the formula, it looks like this.
 
-<br> **[RE(101, 1 out) x (0.88) + RE(100, 2 outs) x (1-0.88)] - RE(110, 1 out)**
+<br> **[RE(101, 1 out) x (0.88) + 0 + RE(100, 2 outs) x (1-0.88) = 0] - [RE(110, 1 out) + 0]**
 
 The run expectancy table is used to evaluate the last three missing pieces of information. The formula then reduces to:
 
@@ -144,6 +148,8 @@ Because when there are 3 outs the team switches from offense to defense, the run
 Although the value is still positive, it is much closer to 0. This means that the risk is very high but still worth taking.
 
 # Shiny App
+
+|    Interested in trying the model on your own? Enter your estimates for the following values to get back the probability of safety! This app is not quite ready to give the Change in Run Expectancy yet, but feel free to do the calculation on your own based on the formula in Appendix B. 
 
 <center>
   <iframe id="shinyapp" src="https://b4billy.shinyapps.io/Stay-or-Go-Shiny/" style="border: none; width: 100%; height: 800px" frameborder="0">
