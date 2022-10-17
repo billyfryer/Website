@@ -97,7 +97,7 @@ knitr::include_graphics("Graphics/Run-Expectancies.png")
 
 \newpage
 
-# Final Takeaways
+# Last Takeaways
 
 |    When combined with run expectancy, this metric can be used in a variety of different way. One example would be a team using it to evaluate which other teams are riskier on the base paths. If a fielder knows a runner likely won't try to go from second to home, he can take more time to make an accurate throw to the infield rather than risk a wild throw to the plate. This could also be used self reflectively to see if a team should be more passive or more aggressive with their own advancing of bases. By reflecting, teams would cut down on some unforced errors like the example of the Biloxi Shuckers at the beginning of this paper and potentially cause more chaotic plays by the opposing defense.
 
