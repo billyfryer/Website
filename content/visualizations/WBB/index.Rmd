@@ -2,7 +2,7 @@
 title: "College Women's Basketball Visualizations"
 author: "Billy Fryer"
 categories: ["Visualizations"]
-tags: ["WBB"]
+tags: ["CWBB"]
 ---
 
 # Duke WBB
