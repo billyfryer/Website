@@ -7,11 +7,11 @@ featured: false
 use_featured: false
 show_intro: true
 intro: |
-  I am an undergraduate senior (4th year student) at North Carolina State University studying Statistics and Spanish. I will graduate in the Spring 2023 Semester. I am from Columbiana, Alabama - a small town halfway between Birmingham and Montgomery.
+  I am currently the Basketball Data Analyst for the Indiana - the second one in the entire WNBA. I am from Columbiana, Alabama - a small town halfway between Birmingham and Montgomery.  I graduated from North Carolina State University with degrees Statistics and Spanish.
   
-  I currently work with the NC State Women's Basketball and Baseball teams. I am also the President of the Sports Analytics Club at NC State. In the future, I hope to be a data scientist in the sports analytics field.
+  I previously worked with the NC State Women's Basketball (2021-2023) and Baseball (2019-2023) teams. I was also the President of the Sports Analytics Club at NC State from 2021-2023. I also interned with John Deere in Summer 2021 and with Sports Reference in Summer 2022 contributing to their launch of the Women's College Basketball site!
   
-  The NC State College of Sciences did a feature about me! A link to the article is here: [Using Statistics to Support Champions](https://sciences.ncsu.edu/news/using-statistics-to-support-champions/).
+  During my junior year of college, the NC State College of Sciences did a feature about me! A link to the article is here: [Using Statistics to Support Champions](https://sciences.ncsu.edu/news/using-statistics-to-support-champions/).
   
 show_outro: false
 outro: |

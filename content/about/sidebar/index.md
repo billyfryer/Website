@@ -9,7 +9,7 @@ link_list:
 - name: GitHub
   url: https://github.com/billyfryer
 - name: Twitter
-  url: https://twitter.com/_b4billy_
+  url: https://twitter.com/BillyFryer42
 - name: LinkedIn
   url: https://www.linkedin.com/in/billy-fryer/
 ---
