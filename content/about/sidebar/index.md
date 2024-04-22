@@ -1,7 +1,7 @@
 ---
 ## Configure sidebar content in narrow column
 author: "Billy Fryer"
-role: "Student at NC State University"
+role: "Basketball Data Analyst for the Indiana Fever"
 avatar_shape: circle # circle, square, rounded, leave blank to exclude
 show_social_links: true # specify social accounts in site config
 link_list_label: "Social Media" # bookmarks, elsewhere, etc.
