@@ -2,7 +2,7 @@
 title: Billy Fryer's Website
 description: Welcome to my website! Feel free to contact me if you have any questions about the content posted on this site!
 images:
-  - img/Gainbridge.jpg
+  - img/Reynolds.jpg
 image_left: false
 show_action_link: true
 show_social_links: true
