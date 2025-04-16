@@ -33,7 +33,7 @@ params:
   custom_theme: ''
   customheadingFontFamily: Fraunces
   customtextFontFamily: Commissioner
-  description: A modern, beautiful, and easily configurable blog theme for Hugo.
+  description: Billy Fryer's Website
   favicon: /img/schs logo.png
   headingFontFamily: sans-serif
   logo: /img/schs logo.png
@@ -41,6 +41,7 @@ params:
     - blog
     - project
     - visualizations
+    - wbb
     - contact
   navallcaps: yes
   orgLocal: Anywhere
@@ -90,10 +91,14 @@ menu:
       title: Visualizations Portfolio
       url: /visualizations/
       weight: 3
+    - name: Women's Basketball
+      title: Visualizations Portfolio
+      url: /wbb/
+      weight: 4
     - name: Contact
       title: Contact form
       url: /contact/
-      weight: 4
+      weight: 5
 privacy:
   disqus:
     disable: no
