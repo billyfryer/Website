@@ -5,7 +5,7 @@ author: "Billy Fryer"
 categories: ["WNBA"]
 tags: ["WNBA", "Women's Basketball", "International"]
 ---
-This WNBA Preseason, Team Brazil takes on professional opponents of the Chicago Sky (May 2) and the Indiana Fever (May 4) in their "Brazilian Tour in the WNBA". This tour serves as practice for this summer's upcoming FIBA Americup in late June/early July in Santiago, Chile where the Brazilians will be slotted in Group A with the Dominican Republic, Argentina, Canada and El Salvador. Below is the tweet posted by @basquetebrasil, the official X account of the Confederação Brasileira de Basketball (Brazilian Basketball Confederation)
+This WNBA Preseason, Team Brazil takes on professional opponents of the Chicago Sky (May 2) and the Indiana Fever (May 4) in their "Brazilian Tour in the WNBA". This tour serves as practice for this summer's upcoming FIBA Americup in late June/early July in Santiago, Chile where the Brazilians will be slotted in Group A with the Dominican Republic, Argentina, Canada and El Salvador. Below is the tweet posted by @basquetebrasil, the official X account of the Confederação Brasileira de Basketball (Brazilian Basketball Confederation).
 
 
 ```{r tweet, echo=FALSE, message=FALSE, warning=FALSE}
@@ -33,13 +33,13 @@ library(gt)
 library(gtExtras)
 library(cfbplotR)
 
-college_stats <- read_excel("college-stats.xlsx")
+college_stats <- read_excel("Data/college-stats.xlsx")
 
 college_stats$Team <- college_stats %>% 
   cfbplotR::clean_school_names(school = .$Team) 
 
 college_stats %>%
-  select(-contains("2P")) %>% 
+  select(Name, Team, Conf, Pos, G, MIN = MP, PTS, REB = TRB, AST) %>% 
   gt() %>% 
   # Convert to logos
   cfbplotR::gt_fmt_cfb_logo(Team) %>% 
@@ -75,7 +75,7 @@ Manuella Alves is a 4 star recuit out of IMG Academy in Florida committed to Ill
 
 ```{r pro-table, echo=FALSE, message=FALSE, warning=FALSE}
 
-pro_stats <- read_excel("pro-stats.xlsx")
+pro_stats <- read_excel("Data/pro-stats.xlsx")
 
 
 pro_stats %>%
