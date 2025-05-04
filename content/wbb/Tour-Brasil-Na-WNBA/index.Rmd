@@ -1,6 +1,6 @@
 ---
 title: "What to Expect From Team Brasil in 'Tour Brasil Na WNBA'"
-date: "May 2, 2025"
+date: "2025-05-02"
 author: "Billy Fryer"
 categories: ["WNBA"]
 tags: ["WNBA", "Women's Basketball", "International"]

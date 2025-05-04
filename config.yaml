@@ -92,11 +92,11 @@ menu:
       url: /visualizations/
       weight: 3
     - name: Women's Basketball
-      title: Visualizations Portfolio
+      title: Women's Basketball Analysis
       url: /wbb/
       weight: 4
     - name: Contact
-      title: Contact form
+      title: Contact Form
       url: /contact/
       weight: 5
 privacy:
