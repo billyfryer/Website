@@ -1,0 +1,686 @@
+---
+title: "An Analysis in Mebounds"
+date: "2025-07-16"
+author: "Billy Fryer"
+categories: ["WNBA"]
+tags: ["WNBA", "Women's Basketball", "Angel Reese", "Rebounds"]
+---
+
+<!-- Analysis Code -->
+```{r set-up, echo = FALSE, warning = FALSE, message = FALSE}
+# Set options
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+
+# Load libraries
+library(tidyverse)
+library(wehoop)
+library(sportyR)
+library(ggthemes)
+library(gt)
+library(gtExtras)
+```
+
+```{r create-wnba-themes}
+# GT Theme
+gt_theme_wnba <- function(gt_table) {
+  gt_table %>% 
+    # Footnote explaining % MEREB
+  tab_footnote(footnote = "Data from 2002 to All Star Break 2025") %>% 
+  # Credit footnote
+  tab_footnote(footnote = "Data From WNBA API via wehoop ~ Data Viz by Billy Fryer") %>% 
+  # Convert percents to percents
+  fmt_percent(columns = c(contains("pct"), contains("percent")),
+              decimals = 1) %>% 
+  # Center columns
+  cols_align("center") %>% 
+  # Tab Options
+  tab_options(
+    # Table Font Color
+    table.font.color = "#4C4C4D",
+    # Background Color
+    table.background.color = "#EFE3C6",
+    # Bold Title
+    heading.title.font.weight = "bold",
+    # Change Subtitle Font Size
+    heading.subtitle.font.size = 12,
+    # Align Heading
+    heading.align = "center",
+    # WNBA Colored Lines and Change Bar Width
+    table.border.top.color = "#F57B20",
+    table.border.bottom.color = "#F57B20",
+    column_labels.border.bottom.color = "#4C4C4D",
+    column_labels.border.bottom.width = px(3),
+    column_labels.border.top.color = "#4C4C4D",
+    column_labels.border.top.width = px(3),
+    table_body.hlines.color = "#4C4C4D",
+    table_body.border.top.color = "#050707",
+    table_body.border.bottom.color = "#050707"
+    ) %>% 
+    return()
+}
+
+# ggplot Theme
+theme_wnba <- function() {
+  theme_fivethirtyeight() %+replace%
+  theme(plot.title = element_text(hjust = 0.5,
+                                  vjust = 1.5,
+                                  size = 15,
+                                  color = "#4C4C4D",
+                                  face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5,
+                                     vjust = 0.5,
+                                     size = 12,
+                                     color = "#4C4C4D",
+                                     face = "bold"),
+        plot.caption = element_text(hjust = 0.5),
+        panel.grid.major = element_line(color = "#4C4C4D"),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.background = element_rect(fill = "#EFE3C6"),
+        plot.background = element_rect(fill = "#EFE3C6"),
+        legend.background = element_rect(fill = "#EFE3C6"),
+        axis.title = element_text(color = "#4C4C4D",
+                                  size = 12)
+        ) %>% 
+    return()
+}
+```
+
+```{r data-lookups}
+# First I need to read in all the PBP back as far as I can
+all_pbp <- wehoop::load_wnba_pbp(seasons = 2002:2025)
+
+# In the intermediary, just load it in for 2024
+#all_pbp <- wehoop::load_wnba_pbp(2024)
+
+# Make a lookup data frame of type_id (event_codes) and type_text (events_text)
+type_lookup <- all_pbp %>% 
+  select(type_id, type_text) %>% 
+  distinct() %>% 
+  arrange(type_id) %>% 
+  # Next I need to add a column for shots
+  # (and some other things in case I ever want to look at them in the future)
+  mutate(is_shot = case_when(# If it's a "shot clock turnover", not a shot
+                             str_detect(str_to_lower(type_text), 
+                                       "shot clock") ~ FALSE,
+                             # Otherwise, if it has "shot", it's a shot
+                             str_detect(str_to_lower(type_text), 
+                                       "shot") ~ TRUE,
+                             # Layups are shots
+                             str_detect(str_to_lower(type_text), 
+                                        "layup") ~ TRUE,
+                             # Banks are shots
+                             str_detect(str_to_lower(type_text), 
+                                        "bank") ~ TRUE,
+                             TRUE ~ FALSE),
+         is_free_throw = case_when(str_detect(str_to_lower(type_text),
+                                              "free thow") ~ TRUE,
+                             TRUE ~ FALSE),
+         is_turnover = case_when(str_detect(str_to_lower(type_text),
+                                            "turnover") ~ TRUE,
+                                 #TODO: Check and see if traveling is a turnover
+                                 # or if those are counted separately
+                             TRUE ~ FALSE),
+         is_foul = case_when(str_detect(str_to_lower(type_text),
+                                        "foul") ~ TRUE,
+                             TRUE ~ FALSE),
+         is_rebound = case_when(str_detect(str_to_lower(type_text),
+                                        "rebound") ~ TRUE,
+                             TRUE ~ FALSE)
+  )
+
+# Pull the type_id for DREB
+dreb_id <- type_lookup %>%
+  filter(type_text == "Defensive Rebound") %>% 
+  pull(type_id)
+
+# Pull the type_id for OREB
+oreb_id <- type_lookup %>%
+  filter(type_text == "Offensive Rebound") %>% 
+  pull(type_id)
+
+# Make a vector of c(dreb_id, oreb_id)
+reb_ids <-  type_lookup %>% 
+  filter(is_rebound) %>% 
+  pull(type_id)
+
+# Pull the type_ids for Shots
+shots_ids <- type_lookup %>% 
+  filter(is_shot) %>% 
+  pull(type_id)
+
+#' Next need to make a rough lookup for these athlete_ids and the people they
+#' represent because for some reason, athlete_id != wnba_id... ugh.
+
+## Get the athlete ID associated with each play
+play_id_athlete_id <- all_pbp %>% 
+  filter(type_id %in% reb_ids) %>% 
+  select(id, athlete_id_1)
+
+## Get the athlete name associated with each play
+# TODO: This isn't working right to get me player names... ugh
+play_id_athlete_name <- all_pbp %>% 
+  # Filter to only rebounds
+  filter(type_id %in% reb_ids) %>%
+  # Select the play_id and text
+  select(id, text) %>% 
+  # Get rid of team rebounds
+  filter(str_detect(text, "team", negate = TRUE)) %>% 
+  # Get all the text before the word "offensive" or "defensive"
+  #' The .. in the sep argument is regex representing anything but newline
+  #' Code Stolen From:
+  #' https://stackoverflow.com/questions/2912894/how-to-match-any-character-in-regular-expression
+  separate(col = "text",
+           into = c("text", "after"),
+           sep = "..fensive") %>%
+  # Clean the text variable
+  mutate(player = stringr::str_squish(text)) %>% 
+  # Pull the play id and player name
+  select(id, player) %>% 
+  # Distinct rows
+  distinct()
+
+## Combine play_id_athlete_id and play_id_athlete_name to make league_roster
+league_roster <- inner_join(play_id_athlete_id,
+                            play_id_athlete_name,
+                            by = join_by(id)) %>% 
+  # Get rid of the play id variable
+  select(-id) %>% 
+  # Filter out where athlete_id_1 is missing.
+  # These usually ended up as team names.
+  filter(!is.na(athlete_id_1)) %>% 
+  # Distinct rows
+  distinct() %>% 
+  #' Some players have multiple spellings so to clean that up, I'm just going to
+  #' select the first one and hope it works out for me that their names are right
+  slice(1, .by = athlete_id_1)
+
+# Clean environment
+rm(play_id_athlete_id, play_id_athlete_name)
+```
+
+```{r rebound-counting-functions}
+# Calculates REB, DREB, OREB, MEREB, AND %s given a play by play
+calculate_rebound_table <- function(pbp_input = all_pbp,
+                                    roster_input = league_roster) {
+  # First filter and get an overall rebound count by player
+  overall_rebounds_count <- pbp_input %>% 
+    filter(type_id %in% reb_ids) %>% 
+    # Pull the rebounder_id
+    pull(athlete_id_1) %>% 
+    # Count rebounds by player
+    table(rebounder_id = .) %>% 
+    as.data.frame() %>% 
+    # Rename  variables
+    select(rebounder_id, reb = Freq) %>% 
+    # Arrange by desc total_reb
+    arrange(desc(reb))
+  
+  # Next, do the same thing for OREBs
+  offensive_rebounds_count<- pbp_input %>% 
+    filter(type_id %in% oreb_id) %>% 
+    # Pull the rebounder_id
+    pull(athlete_id_1) %>% 
+    # Count rebounds by player
+    table(rebounder_id = .) %>% 
+    as.data.frame() %>% 
+    # Rename  variables
+    select(rebounder_id, oreb = Freq) %>% 
+    # Arrange by desc total_reb
+    arrange(desc(oreb))
+  
+  # Next, do the same for DREBS
+  defensive_rebounds_count <- pbp_input %>% 
+    filter(type_id %in% dreb_id) %>% 
+    # Pull the rebounder_id
+    pull(athlete_id_1) %>% 
+    # Count rebounds by player
+    table(rebounder_id = .) %>% 
+    as.data.frame() %>% 
+    # Rename  variables
+    select(rebounder_id, dreb = Freq) %>% 
+    # Arrange by desc total_reb
+    arrange(desc(dreb))
+  
+  # Finally, find the mebounds
+  mebounds_count <- pbp_input %>% 
+    #' Mebound is defined as an offensive rebound where the shot leading to the
+    #' rebound is shot by the person grabbing the rebound
+          # Filter to OREBs
+    filter(type_id %in% oreb_id &
+             # where previous event was a shot (not FTs, can be changed)
+             lag(type_id) %in% shots_ids &
+             # And shot shooter == rebounder
+             lag(athlete_id_1) == athlete_id_1
+             ) %>%  
+    # Pull the rebounder_id
+    pull(athlete_id_1) %>% 
+    # Count rebounds by player
+    table(rebounder_id = .) %>% 
+    as.data.frame() %>% 
+    # Rename  variables
+    select(rebounder_id, mereb = Freq) %>% 
+    # Arrange by desc total_reb
+    arrange(desc(mereb))
+  
+  # Finally, join all the rebound_count tables
+  full_rebound_count <- overall_rebounds_count %>% 
+    # Join on the DREBs
+    left_join(., defensive_rebounds_count,
+              by = join_by(rebounder_id)) %>% 
+    # Join on the OREBs
+    left_join(., offensive_rebounds_count,
+              by = join_by(rebounder_id)) %>%
+    # Join on the MeREBs
+    left_join(., mebounds_count,
+              by = join_by(rebounder_id)) %>% 
+    # Convert rebounder_id to numeric (not sure why I needed to convert it
+    # to character first, but I did and it worked)
+    mutate(rebounder_id = as.numeric(as.character(rebounder_id))) %>% 
+    # Left join on the roster
+    left_join(., roster_input,
+              by = join_by(rebounder_id == athlete_id_1)) %>% 
+    # Calculate %s by rebound type
+    mutate(percent_oreb = oreb / reb,
+           percent_dreb = dreb / reb,
+           # mebound% is mebounds divided by all rebounds
+           percent_mereb = mereb / reb,
+           # percent_mereb_oreb is mereb / oreb
+           percent_mereb_oreb = mereb / oreb
+           ) %>% 
+    # Order Columns
+    select(rebounder_id, player, everything())
+  
+  return(full_rebound_count)
+}
+
+# Calculate Points off orebs
+calculate_points_off_oreb_table <- function(pbp_input = all_pbp,
+                                       roster_input = league_roster) {
+  
+  # First filter to only shots right after OREBs
+  shots_after_orebs <- pbp_input %>% 
+           # filter where the previous event was an OREB
+    filter(lag(type_id) %in% oreb_id &
+             # And current event is a shot of some sort
+             type_id %in% shots_ids)
+  
+  # Summarize shots_after_oreb table
+  shots_after_orebs %>% 
+    group_by(athlete_id_1) %>% 
+      summarize(fgm = sum(scoring_play == TRUE),
+                fga = n(),
+                fgm_3 = sum(score_value == 3),
+                fga_3 = sum(str_detect(text, "three point") | score_value == 3),
+                pts = sum(score_value, na.rm = TRUE)) %>% 
+    ungroup() %>% 
+    # Calculate 2 pointers and percentages
+    mutate(fgm_2 = fgm - fgm_3,
+           fga_2 = fga - fga_3,
+           fg_pct = fgm / fga,
+           fg_3_pct = fgm_3 / fga_3,
+           fg_2_pct = fgm_2 / fga_2,
+           fga_3_pct = fga_3 / fga,
+           fga_2_pct = fga_2 / fga
+           ) %>% 
+    # Finally, join on the roster
+    left_join(., roster_input,
+              by = join_by(athlete_id_1)) %>%
+    # Order Columns
+    select(athlete_id_1, player, pts, fgm, fga, fg_pct,
+           contains("2"), contains("3")) %>% 
+    # Return
+    return()
+}
+
+# Calculate Points off mebounds a
+calculate_points_off_mereb_table <- function(pbp_input = all_pbp,
+                                       roster_input = league_roster) {
+  
+  # First filter to only shots right after OREBs
+  shots_after_merebs <- pbp_input %>% 
+           # filter where the previous event was an OREB
+    filter(lag(type_id) %in% oreb_id &
+             # And current event is a shot of some sort
+             type_id %in% shots_ids &
+             # And where the rebounder is the shooter
+             lag(athlete_id_1) == athlete_id_1
+    )
+  
+  
+  # Summarize shots_after_oreb table
+  shots_after_merebs %>% 
+    group_by(athlete_id_1) %>% 
+      summarize(fgm = sum(scoring_play == TRUE),
+                fga = n(),
+                fgm_3 = sum(score_value == 3),
+                fga_3 = sum(str_detect(text, "three point") | score_value == 3),
+                pts = sum(score_value, na.rm = TRUE)) %>% 
+    ungroup() %>% 
+    # Calculate 2 pointers and percentages
+    mutate(fgm_2 = fgm - fgm_3,
+           fga_2 = fga - fga_3,
+           fg_pct = fgm / fga,
+           fg_3_pct = fgm_3 / fga_3,
+           fg_2_pct = fgm_2 / fga_2,
+           fga_3_pct = fga_3 / fga,
+           fga_2_pct = fga_2 / fga
+           ) %>% 
+    # Finally, join on the roster
+    left_join(., roster_input,
+              by = join_by(athlete_id_1)) %>%
+    # Order Columns
+    select(athlete_id_1, player, pts, fgm, fga, fg_pct,
+           contains("2"), contains("3")) %>%
+    # Return
+    return()
+}
+
+#' Function that takes in PBP and a year input and outputs the three
+#' tables joined together
+join_rebound_tables <- function(filtered_pbp,
+                                year_input = 2024) {
+  
+  # Get rebound_table
+  rebound_table <- calculate_rebound_table(filtered_pbp)
+  
+  # Get scoring stats after an OREB
+  #' NOTE: When joining this table, I'm going to suffix all these columns
+  #' with "oreb_"
+  points_off_oreb_table <- calculate_points_off_oreb_table(filtered_pbp)
+  
+  # Get scoring stats after an MEREB
+  #' NOTE: When joining this table, I'm going to suffix all these columns
+  #' with "mereb_"
+  points_off_mereb_table <- calculate_points_off_mereb_table(filtered_pbp)
+  
+  
+  # Join all the tables together
+  
+  ## First join the oreb and mereb tables because both need suffixes
+  points_off_reb_table <- full_join(points_off_oreb_table,
+                          points_off_mereb_table,
+                          by = join_by(athlete_id_1, player),
+                          suffix = c("_oreb", "_mereb")
+                          ) 
+  ## Left join those to the rebound table that has all the players
+  full_table <- left_join(rebound_table,
+              points_off_reb_table,
+              by = join_by("rebounder_id" == "athlete_id_1",
+                           player)) %>% 
+    # Mutate on the year that the data is inputted from
+    mutate(year = year_input) %>% 
+    # Order Columns
+    select(rebounder_id, player, year, everything())
+ 
+  # Return full_table
+  return(full_table)
+}
+```
+
+```{r running-over-all-seasons}
+# Initialize a data frame with the 2002 data
+rebound_tables_by_season <- join_rebound_tables(
+                                filtered_pbp = all_pbp %>% filter(season == 2002),
+                                year_input = 2002)
+
+# For every season in the dataset
+for (i in 2003:2025) {
+  
+  # Note to console
+  #cat("Calculating Rebound Stats for", i, " Season\n")
+  
+  # Filter all_pbp to the season
+  current_season_pbp <- all_pbp %>% 
+    filter(season == i)
+  
+  # Calculate all the stats for that season and join them
+  rebound_tables <- join_rebound_tables(filtered_pbp = current_season_pbp,
+                                        year_input = i)
+  
+  
+  # Now concatenate rebound_table to rebound_tables_by_season
+  rebound_tables_by_season <- bind_rows(rebound_tables_by_season,
+                                        rebound_tables)
+  
+}
+```
+
+<!-- Graphics and Paper -->
+
+In her season and a half in the WNBA, Angel Reese has proven that she is one best rebounders in all of basketball. In her own words, ["anything that comes off that board is [hers]"](https://www.tiktok.com/@angelreese10/video/7515834644336774446), and to a large extent that has been true. During the 2024 season, she set the WNBA record for rebounds per game for a single season with 13.1 a game. She also led the league in Rebound % (the amount of rebounds she recorded divided by the number of rebounds available when she was on the court). As of the All-Star Break in 2025, she's kept up that pace averaging 12.6 rebounds a game (which would rank 2nd all-time to her 2024 season) with a Rebound % of 22.6%. 
+
+The strongest part of her game is her Offensive Rebounding. Angel Reese averaged 5.1 OREB/Game in the 2024 season which is tied with Yolanda Griffith's 2001 Season for best all time. However, Reese's season came under much more scrutiny that Griffith's ever did due to her for FG%, specifically close to the basket. Reese went 147 for 357 (41.1%) on the season within 10 feet of the basket and seemingly to fans a majority of her offensive rebounds were off her own misses. This led to Ben Hendricks coining the term "mebound" on Jeff Teague's Podcast Club 520, a term Reese has since trademarked for merchandise [according to the Athletic](https://www.nytimes.com/athletic/6430776/2025/06/16/angel-reese-trademark-mebounds-online-criticism/). To define the term, a mebound occurs when a player takes a shot and misses (including shots that are blocked) and then proceeds to get their own offensive rebound. Although Angel Reese is the most famous mebounder, I wanted to study where she compares historically to other mebounders as well as what the results of her mebounds are. 
+
+*Note: Unfortunately, the WNBA API did not have data prior to the 2002 season, which leaves us wondering if Griffith's 2001 season was obtained by poor teammate shooting or by her own misses. All references in this article to "all-time" records should be interpreted as "since 2002". That being said, due the increasing number of games per season the WNBA has had since its inception, it's fair to conclude that all "totals" statistics are likely to be correct.*
+
+# Mebounds throughout WNBA History
+
+```{r mebounds-per-year}
+# League Mebounds per year
+mebounds_per_year <- rebound_tables_by_season %>% 
+  group_by(year) %>% 
+    summarize(total_mereb = sum(mereb, na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  # Double the 2025 total since we're only halfway through the season (at this point)
+  mutate(total_mereb = case_when(year == 2025 ~ 2.25 * total_mereb,
+                                 .default = total_mereb),
+         n_games = case_when(year == c(2002, 2021) ~ 32,
+                             year == 2020 ~ 22,
+                             year == 2022 ~ 36,
+                             year %in% 2023:2024 ~ 40,
+                             year == 2025 ~ 44,
+                             .default = 34)
+         )
+
+
+ggplot(data = mebounds_per_year,
+       aes(x = year,
+           y = total_mereb)) +
+  # Line showing trend
+  geom_line(data = mebounds_per_year %>% filter(year != 2025),
+            linewidth = 1.25) +
+  # Dashed line for 2025 projection
+  geom_line(data = mebounds_per_year %>% filter(year %in% 2024:2025),
+            linewidth = 0.75,
+            linetype = "dashed") +
+  # Points for every single year
+  geom_point(aes(color = n_games),
+             size = 3) +
+  # Plot Labels
+  labs(title = "WNBA League Wide Total Mebounds Per Year",
+       subtitle = "Data Includes All Postseason and Commissioner's Cup Games\n2025 Data Extrapolated from First Half of the Season",
+       x = "Year",
+       y = "Yearly Mebound Total",
+       color = "Regular Season Games Played",
+       caption = "Data From WNBA API via wehoop ~ Data Viz by Billy Fryer"
+      ) +
+  # Choosing the colors
+  scale_color_gradient(low = "#4C4C4D",
+                       high = "#F57B20") +
+  # Apply WNBA Theme
+  theme_wnba()
+```
+
+As the graph above shows, the WNBA is on pace to shatter the league record of Mebounds in a season. This of course makes perfect sense give the expansion of Golden State and the longest season to date with each team playing 44 games. The total amount of Mebounds per year in the league is typically between 900 and just over 1000; the 2025 season is projecting to have approximately 1167. The notable outlier of course is the 2020 season in the Wubble where teams only played 22 games each and an abbreviated playoff.
+
+# Most Notorious Mebounders since 2002
+
+```{r top-mebound-percent}
+rebound_tables_by_season %>% 
+  # Best to worst percentage wise
+  arrange(desc(percent_mereb)) %>%
+  # Minimum 20 merebs
+  filter(mereb >= 20) %>% 
+  # Select necessary columns
+  select(year, player, reb, mereb, percent_mereb) %>% 
+  # Top 10
+  head(10) %>% 
+  # Convert to GT Table
+  gt() %>% 
+  # Title
+  tab_header(title = md("**Top 10 Players by % MEREB**"),
+             subtitle = md("**% MEREB = MEREB / REB ~ Minimum 20 MEREB**")) %>%
+  # Label columns
+  cols_label(player = "Player",
+             year = "Year",
+             reb = "REB",
+             mereb = "MEREB",
+             percent_mereb = "% MEREB") %>% 
+  # Apply WNBA Theme
+  gt_theme_wnba()
+
+#' As of 7/13, Angel Reese's % MEREB is at 10.5% for the 2025 season
+#' and she is on pace for 54 MEREB
+```
+
+Similar to [Josiah Cohen's article](https://riseofthevalkyries.substack.com/p/is-angel-reese-really-the-queen-of), I also decided to look at the proportion of a player's rebounds that were Mebounds (MEREB) rather than a true MEREB% which would be the percentage of Player X's misses acquired by them self as opposed to anyone else. After setting a minimum qualifier, we find that 13.8% of Angel's rebounds during the 2024 seasons were Mebounds, a figure that ranks her season as 5th all-time. That being said, due to the additional games, Angel Reese did collect the most total MEREB of any player all time with 56.
+
+There are plenty of other notable names on this list including Seattle Storm Ring of Honor Member Lauren Jackson and the aforementioned Yolanda Griffith. Perhaps the most interesting name on the list is Cappie Pondexter, a all-star guard that played for Phoenix during their 2009 Championship season. Pondexter stands at 5'9" yet was able to grab her own misses on a team full of size with WNBA stalwarts Tangela Smith and a rookie at the time DeWanna Bonner. Pondexter
+was on her third year and thus end of her rookie contract, eventually getting to traded to New York in a 3-team trade involving Chicago during the off-season.
+
+# How Angel Reese's Performance has been Boosted by Mebounds
+
+```{r 2024-most-MEREB-Season}
+rebound_tables_by_season %>%
+  # Filter to 2024
+  filter(year == 2024) %>% 
+  # Mutate on a mereb and pts_mereb rank
+  mutate(mereb_rank = rank(desc(mereb), ties.method = "min"),
+         pts_mereb_rank = rank(desc(pts_mereb), ties.method = "min")) %>% 
+  # Select player, OREB, MEREB, and pt_mereb
+  select(player, oreb, mereb, mereb_rank, pts_mereb, pts_mereb_rank) %>% 
+  # arrange by mereb then pts_mereb
+  arrange(desc(mereb), desc(pts_mereb)) %>% 
+  # Top 10
+  head(10) %>% 
+  # Convert to GT
+  gt() %>% 
+  # Title
+  tab_header(title = md("**2024 Top WNBA Mebounders**")) %>%
+  # Column labels
+  cols_label(player = "Player",
+             oreb = "OREB",
+             mereb = "MEREB",
+             mereb_rank = "Rank",
+             pts_mereb = "PTS Off\nMEREB",
+             pts_mereb_rank = "Rank") %>% 
+  # Apply theme
+  gt_theme_wnba()
+```
+
+As previously mentioned, Angel led the league by a wide margin for most mebounds. This is likely strongly connected to the fact that Reese was also the most blocked player in the WNBA according to WNBA Stats. 76 of Reese's shots during the 2024 were blocked. Right behind her was Dearica Hamby of the LA Sparks with 75 before a large gap to everyone else. Both Reese and Hamby play well below the rim, even compared to other WNBA players and stand at 6'3". When playing against giants like Jonquel Jones and Brittney Griner (standing at 6'6" and 6'9" respectively), they're giving up a huge height advantage with no way to overcome the disadvantage. 
+
+Worth mentioning, despite the wide lead in mebounds Reese ranked 2nd in the league for points off of mebounds trailing Dallas Wings' center Teaira McCowan. Reese only scored 2 points more than Aliyah Boston who is ranked 3rd in the category. This implies that Angel isn't getting as much of a boost in scoring from the mebounds as previously thought.
+
+```{r worst-fg%-after-MEREB-in-a-season}
+rebound_tables_by_season %>% 
+  # Best to worst percentage wise
+  arrange(fg_pct_mereb) %>%
+  # Minimum 20 merebs
+  filter(mereb >= 20) %>% 
+  # Select necessary columns
+  select(year, player, mereb, pts_mereb, fg_pct_mereb) %>% 
+  # Top 10
+  head(10) %>% 
+  # Convert to GT Table
+  gt() %>% 
+  # Title
+  tab_header(title = md("**Worst FG% on Shots After MEREB**"),
+             subtitle = md("**Minimum 20 MEREB**")) %>% 
+  # Label columns
+  cols_label(player = "Player",
+             year = "Year",
+             mereb = "MEREB",
+             pts_mereb = "PTS",
+             fg_pct_mereb = "FG%") %>% 
+  # Col spanner
+  tab_spanner(label = "Off of MEREB",
+              columns = ends_with("_mereb")) %>% 
+  # Apply WNBA Theme
+  gt_theme_wnba()
+```
+
+This leads to another point of criticism for Reese: her FG% on shots after mebounds. Despite having so many more Mebounds than opponents, Angel's efficiency after mebounds has been pretty poor. Luckily for her, this is not historically poor as Angel does not crack the bottom top worst field goal percentages on shots after MEREB. That distinction belongs to Glory Johnson during her 2013 All-Star Campaign with the Tulsa Shock. That All-Star appearance was the first of 2 in her career. Perhaps more surprising is the number of current or future Hall of Famers that appear on this list including Tamika Catchings, Maya Moore, and Alyssa Thomas among others. Angel Reese's FG% after a MEREB was actually at 46% implying which ranked 29th worst all time. She's improved on this number shooting over 51% after a MEREB in the 2025 as of the All-Star Break.
+
+```{r angel-reese-shot-locations}
+# First get Angel Reese ID
+ar_id <- league_roster %>% 
+  filter(player == "Angel Reese") %>% 
+  pull(athlete_id_1)
+
+# Next filter all_pbp to her mereb
+angel_reese_mereb <- all_pbp %>% 
+  # Filter to Angel's offensive rebounds...
+  filter((athlete_id_1 == ar_id & type_id %in% shots_ids) &
+          # When Angel's offensive rebounds...
+          (lag(athlete_id_1) == ar_id & lag(type_id) %in% oreb_id) &
+           # Where the row before that was her shooting
+           (lag(athlete_id_1, 2) == ar_id & 
+              lag(type_id, 2) %in% shots_ids)) %>% 
+  # Transform Coordinates
+  mutate(new_coordinate_y = abs(coordinate_x),
+         new_coordinate_x = coordinate_y) %>% 
+  # Select useful columns
+  select(scoring_play,
+         coordinate_x = new_coordinate_x,
+         coordinate_y = new_coordinate_y)
+
+# Plotting
+geom_basketball(league = "WNBA",
+                display_range = "defensive_half_court",
+                color_updates = list(
+                  plot_background = "#EFE3C6",
+                  offensive_half_court = "#4C4C4D",
+                  defensive_half_court = "#4C4C4D",
+                  two_point_range = "#4C4C4D",
+                  center_circle_outline = "#EFE3C6",
+                  center_circle_fill = "#4C4C4D",
+                  painted_area = "#4C4C4D",
+                  lane_boundary =  "#EFE3C6",
+                  free_throw_circle_outline = "#EFE3C6",
+                  free_throw_circle_fill = "#4C4C4D",
+                  free_throw_circle_dash = "#EFE3C6",
+                  three_point_line = "#EFE3C6",
+                  free_throw_circle_dash = "#EFE3C6",
+                  lane_space_mark = "#EFE3C6",
+                  inbounding_line = "#EFE3C6",
+                  substitution_line = "#EFE3C6",
+                  baseline_lower_defensive_box = "#EFE3C6",
+                  lane_lower_defensive_box = "#EFE3C6",
+                  restricted_arc = "#EFE3C6",
+                  backboard = "#EFE3C6",
+                  basket_ring = "#EFE3C6",
+                  sideline = "#F57B20",
+                  endline = "#F57B20",
+                  court_apron = "#F57B20"
+                ),
+                rotation = -90) + 
+  geom_jitter(data = angel_reese_mereb,
+             aes(x = coordinate_x,
+                 y = coordinate_y,
+                 color = scoring_play,
+                 shape = scoring_play),
+             size = 4,
+             stroke = 1.5) +
+  # x for the miss and filled in dot for make
+  scale_shape_manual(values = c(4, 16)) +
+  scale_color_manual(values = c("lightblue", "red")) +
+  # Labels
+  labs(title = "Angel Reese Shot Chart - Shots After MEREB",
+       subtitle = "Combined 2024 and 2025 Seasons",
+       caption = "Data from WNBA API via wehoop ~ Data Viz by Billy Fryer",
+       color = "Made Shot?",
+       shape = "Made Shot?") + 
+  # Theme
+  theme_wnba() + 
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        plot.title = element_text(size = 12))
+```
+
+Perhaps more interesting is where Reese find success making shots after a MEREB. As expected, all of her shot attempts come right around the rim. However, there is a huge difference in how she finishes on the left side of the rim when compared to the right side. Reese is left-handed, but this split is rather extreme. Ultimately, for her game to improve she has to be able to finish better with both hands.
+
+*Stats sourced from Basketball Reference unless otherwise stated.*

@@ -1,0 +1,1634 @@
+---
+title: "An Analysis in Mebounds"
+date: "2025-07-16"
+author: "Billy Fryer"
+categories: ["WNBA"]
+tags: ["WNBA", "Women's Basketball", "Angel Reese", "Rebounds"]
+---
+
+
+
+<!-- Analysis Code -->
+<!-- Graphics and Paper -->
+<p>In her season and a half in the WNBA, Angel Reese has proven that she is one best rebounders in all of basketball. In her own words, <a href="https://www.tiktok.com/@angelreese10/video/7515834644336774446">“anything that comes off that board is [hers]”</a>, and to a large extent that has been true. During the 2024 season, she set the WNBA record for rebounds per game for a single season with 13.1 a game. She also led the league in Rebound % (the amount of rebounds she recorded divided by the number of rebounds available when she was on the court). As of the All-Star Break in 2025, she’s kept up that pace averaging 12.6 rebounds a game (which would rank 2nd all-time to her 2024 season) with a Rebound % of 22.6%.</p>
+<p>The strongest part of her game is her Offensive Rebounding. Angel Reese averaged 5.1 OREB/Game in the 2024 season which is tied with Yolanda Griffith’s 2001 Season for best all time. However, Reese’s season came under much more scrutiny that Griffith’s ever did due to her for FG%, specifically close to the basket. Reese went 147 for 357 (41.1%) on the season within 10 feet of the basket and seemingly to fans a majority of her offensive rebounds were off her own misses. This led to Ben Hendricks coining the term “mebound” on Jeff Teague’s Podcast Club 520, a term Reese has since trademarked for merchandise <a href="https://www.nytimes.com/athletic/6430776/2025/06/16/angel-reese-trademark-mebounds-online-criticism/">according to the Athletic</a>. To define the term, a mebound occurs when a player takes a shot and misses (including shots that are blocked) and then proceeds to get their own offensive rebound. Although Angel Reese is the most famous mebounder, I wanted to study where she compares historically to other mebounders as well as what the results of her mebounds are.</p>
+<p><em>Note: Unfortunately, the WNBA API did not have data prior to the 2002 season, which leaves us wondering if Griffith’s 2001 season was obtained by poor teammate shooting or by her own misses. All references in this article to “all-time” records should be interpreted as “since 2002”. That being said, due the increasing number of games per season the WNBA has had since its inception, it’s fair to conclude that all “totals” statistics are likely to be correct.</em></p>
+<div id="mebounds-throughout-wnba-history" class="section level1">
+<h1>Mebounds throughout WNBA History</h1>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/mebounds-per-year-1.png" width="672" /></p>
+<p>As the graph above shows, the WNBA is on pace to shatter the league record of Mebounds in a season. This of course makes perfect sense give the expansion of Golden State and the longest season to date with each team playing 44 games. The total amount of Mebounds per year in the league is typically between 900 and just over 1000; the 2025 season is projecting to have approximately 1167. The notable outlier of course is the 2020 season in the Wubble where teams only played 22 games each and an abbreviated playoff.</p>
+</div>
+<div id="most-notorious-mebounders-since-2002" class="section level1">
+<h1>Most Notorious Mebounders since 2002</h1>
+<div id="hzxestfcpm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hzxestfcpm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hzxestfcpm thead, #hzxestfcpm tbody, #hzxestfcpm tfoot, #hzxestfcpm tr, #hzxestfcpm td, #hzxestfcpm th {
+  border-style: none;
+}
+
+#hzxestfcpm p {
+  margin: 0;
+  padding: 0;
+}
+
+#hzxestfcpm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #4C4C4D;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #EFE3C6;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #F57B20;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #F57B20;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hzxestfcpm .gt_title {
+  color: #4C4C4D;
+  font-size: 125%;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #EFE3C6;
+  border-bottom-width: 0;
+}
+
+#hzxestfcpm .gt_subtitle {
+  color: #4C4C4D;
+  font-size: 12px;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #EFE3C6;
+  border-top-width: 0;
+}
+
+#hzxestfcpm .gt_heading {
+  background-color: #EFE3C6;
+  text-align: center;
+  border-bottom-color: #EFE3C6;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #4C4C4D;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #4C4C4D;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_col_heading {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hzxestfcpm .gt_column_spanner_outer {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hzxestfcpm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hzxestfcpm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hzxestfcpm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #4C4C4D;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hzxestfcpm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hzxestfcpm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hzxestfcpm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hzxestfcpm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hzxestfcpm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hzxestfcpm .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #4C4C4D;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hzxestfcpm .gt_stub {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hzxestfcpm .gt_stub_row_group {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hzxestfcpm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hzxestfcpm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hzxestfcpm .gt_summary_row {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hzxestfcpm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hzxestfcpm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_grand_summary_row {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hzxestfcpm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hzxestfcpm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #050707;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #050707;
+}
+
+#hzxestfcpm .gt_footnotes {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hzxestfcpm .gt_sourcenotes {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hzxestfcpm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hzxestfcpm .gt_left {
+  text-align: left;
+}
+
+#hzxestfcpm .gt_center {
+  text-align: center;
+}
+
+#hzxestfcpm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hzxestfcpm .gt_font_normal {
+  font-weight: normal;
+}
+
+#hzxestfcpm .gt_font_bold {
+  font-weight: bold;
+}
+
+#hzxestfcpm .gt_font_italic {
+  font-style: italic;
+}
+
+#hzxestfcpm .gt_super {
+  font-size: 65%;
+}
+
+#hzxestfcpm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hzxestfcpm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hzxestfcpm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hzxestfcpm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hzxestfcpm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hzxestfcpm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hzxestfcpm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#hzxestfcpm .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hzxestfcpm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_title gt_font_normal" style><span class='gt_from_md'><strong>Top 10 Players by % MEREB</strong></span></td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class='gt_from_md'><strong>% MEREB = MEREB / REB ~ Minimum 20 MEREB</strong></span></td>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="year">Year</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="player">Player</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="reb">REB</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="mereb">MEREB</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="percent_mereb">% MEREB</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="year" class="gt_row gt_center">2002</td>
+<td headers="player" class="gt_row gt_center">Adrienne Goodson</td>
+<td headers="reb" class="gt_row gt_center">197</td>
+<td headers="mereb" class="gt_row gt_center">32</td>
+<td headers="percent_mereb" class="gt_row gt_center">16.2%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2009</td>
+<td headers="player" class="gt_row gt_center">Cappie Pondexter</td>
+<td headers="reb" class="gt_row gt_center">193</td>
+<td headers="mereb" class="gt_row gt_center">29</td>
+<td headers="percent_mereb" class="gt_row gt_center">15.0%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2007</td>
+<td headers="player" class="gt_row gt_center">Janell Burse</td>
+<td headers="reb" class="gt_row gt_center">154</td>
+<td headers="mereb" class="gt_row gt_center">23</td>
+<td headers="percent_mereb" class="gt_row gt_center">14.9%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2002</td>
+<td headers="player" class="gt_row gt_center">Lauren Jackson</td>
+<td headers="reb" class="gt_row gt_center">199</td>
+<td headers="mereb" class="gt_row gt_center">28</td>
+<td headers="percent_mereb" class="gt_row gt_center">14.1%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2024</td>
+<td headers="player" class="gt_row gt_center">Angel Reese</td>
+<td headers="reb" class="gt_row gt_center">406</td>
+<td headers="mereb" class="gt_row gt_center">56</td>
+<td headers="percent_mereb" class="gt_row gt_center">13.8%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2015</td>
+<td headers="player" class="gt_row gt_center">Courtney Paris</td>
+<td headers="reb" class="gt_row gt_center">332</td>
+<td headers="mereb" class="gt_row gt_center">44</td>
+<td headers="percent_mereb" class="gt_row gt_center">13.3%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2007</td>
+<td headers="player" class="gt_row gt_center">Yolanda Griffith</td>
+<td headers="reb" class="gt_row gt_center">168</td>
+<td headers="mereb" class="gt_row gt_center">22</td>
+<td headers="percent_mereb" class="gt_row gt_center">13.1%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2004</td>
+<td headers="player" class="gt_row gt_center">Demya Walker</td>
+<td headers="reb" class="gt_row gt_center">163</td>
+<td headers="mereb" class="gt_row gt_center">21</td>
+<td headers="percent_mereb" class="gt_row gt_center">12.9%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2003</td>
+<td headers="player" class="gt_row gt_center">Penny Taylor</td>
+<td headers="reb" class="gt_row gt_center">160</td>
+<td headers="mereb" class="gt_row gt_center">20</td>
+<td headers="percent_mereb" class="gt_row gt_center">12.5%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2013</td>
+<td headers="player" class="gt_row gt_center">Kara Braxton</td>
+<td headers="reb" class="gt_row gt_center">225</td>
+<td headers="mereb" class="gt_row gt_center">28</td>
+<td headers="percent_mereb" class="gt_row gt_center">12.4%</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="5"> Data from 2002 to All Star Break 2025</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="5"> Data From WNBA API via wehoop ~ Data Viz by Billy Fryer</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<p>Similar to <a href="https://riseofthevalkyries.substack.com/p/is-angel-reese-really-the-queen-of">Josiah Cohen’s article</a>, I also decided to look at the proportion of a player’s rebounds that were Mebounds (MEREB) rather than a true MEREB% which would be the percentage of Player X’s misses acquired by them self as opposed to anyone else. After setting a minimum qualifier, we find that 13.8% of Angel’s rebounds during the 2024 seasons were Mebounds, a figure that ranks her season as 5th all-time. That being said, due to the additional games, Angel Reese did collect the most total MEREB of any player all time with 56.</p>
+<p>There are plenty of other notable names on this list including Seattle Storm Ring of Honor Member Lauren Jackson and the aforementioned Yolanda Griffith. Perhaps the most interesting name on the list is Cappie Pondexter, a all-star guard that played for Phoenix during their 2009 Championship season. Pondexter stands at 5’9” yet was able to grab her own misses on a team full of size with WNBA stalwarts Tangela Smith and a rookie at the time DeWanna Bonner. Pondexter
+was on her third year and thus end of her rookie contract, eventually getting to traded to New York in a 3-team trade involving Chicago during the off-season.</p>
+</div>
+<div id="how-angel-reeses-performance-has-been-boosted-by-mebounds" class="section level1">
+<h1>How Angel Reese’s Performance has been Boosted by Mebounds</h1>
+<div id="fbyywgkyjv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fbyywgkyjv table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#fbyywgkyjv thead, #fbyywgkyjv tbody, #fbyywgkyjv tfoot, #fbyywgkyjv tr, #fbyywgkyjv td, #fbyywgkyjv th {
+  border-style: none;
+}
+
+#fbyywgkyjv p {
+  margin: 0;
+  padding: 0;
+}
+
+#fbyywgkyjv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #4C4C4D;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #EFE3C6;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #F57B20;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #F57B20;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fbyywgkyjv .gt_title {
+  color: #4C4C4D;
+  font-size: 125%;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #EFE3C6;
+  border-bottom-width: 0;
+}
+
+#fbyywgkyjv .gt_subtitle {
+  color: #4C4C4D;
+  font-size: 12px;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #EFE3C6;
+  border-top-width: 0;
+}
+
+#fbyywgkyjv .gt_heading {
+  background-color: #EFE3C6;
+  text-align: center;
+  border-bottom-color: #EFE3C6;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #4C4C4D;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #4C4C4D;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_col_heading {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#fbyywgkyjv .gt_column_spanner_outer {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#fbyywgkyjv .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#fbyywgkyjv .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#fbyywgkyjv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #4C4C4D;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#fbyywgkyjv .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#fbyywgkyjv .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#fbyywgkyjv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#fbyywgkyjv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fbyywgkyjv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fbyywgkyjv .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #4C4C4D;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#fbyywgkyjv .gt_stub {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fbyywgkyjv .gt_stub_row_group {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#fbyywgkyjv .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fbyywgkyjv .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#fbyywgkyjv .gt_summary_row {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fbyywgkyjv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fbyywgkyjv .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_grand_summary_row {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fbyywgkyjv .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#fbyywgkyjv .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #050707;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #050707;
+}
+
+#fbyywgkyjv .gt_footnotes {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fbyywgkyjv .gt_sourcenotes {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fbyywgkyjv .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fbyywgkyjv .gt_left {
+  text-align: left;
+}
+
+#fbyywgkyjv .gt_center {
+  text-align: center;
+}
+
+#fbyywgkyjv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fbyywgkyjv .gt_font_normal {
+  font-weight: normal;
+}
+
+#fbyywgkyjv .gt_font_bold {
+  font-weight: bold;
+}
+
+#fbyywgkyjv .gt_font_italic {
+  font-style: italic;
+}
+
+#fbyywgkyjv .gt_super {
+  font-size: 65%;
+}
+
+#fbyywgkyjv .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#fbyywgkyjv .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fbyywgkyjv .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#fbyywgkyjv .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#fbyywgkyjv .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#fbyywgkyjv .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#fbyywgkyjv .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#fbyywgkyjv .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#fbyywgkyjv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="6" class="gt_heading gt_title gt_font_normal gt_bottom_border" style><span class='gt_from_md'><strong>2024 Top WNBA Mebounders</strong></span></td>
+    </tr>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="player">Player</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="oreb">OREB</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="mereb">MEREB</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="mereb_rank">Rank</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="pts_mereb">PTS Off
+MEREB</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="pts_mereb_rank">Rank</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="player" class="gt_row gt_center">Angel Reese</td>
+<td headers="oreb" class="gt_row gt_center">163</td>
+<td headers="mereb" class="gt_row gt_center">56</td>
+<td headers="mereb_rank" class="gt_row gt_center">1</td>
+<td headers="pts_mereb" class="gt_row gt_center">84</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">2</td></tr>
+    <tr><td headers="player" class="gt_row gt_center">Breanna Stewart</td>
+<td headers="oreb" class="gt_row gt_center">88</td>
+<td headers="mereb" class="gt_row gt_center">33</td>
+<td headers="mereb_rank" class="gt_row gt_center">2</td>
+<td headers="pts_mereb" class="gt_row gt_center">38</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">15</td></tr>
+    <tr><td headers="player" class="gt_row gt_center">Aliyah Boston</td>
+<td headers="oreb" class="gt_row gt_center">116</td>
+<td headers="mereb" class="gt_row gt_center">30</td>
+<td headers="mereb_rank" class="gt_row gt_center">3</td>
+<td headers="pts_mereb" class="gt_row gt_center">82</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">3</td></tr>
+    <tr><td headers="player" class="gt_row gt_center">A'ja Wilson</td>
+<td headers="oreb" class="gt_row gt_center">76</td>
+<td headers="mereb" class="gt_row gt_center">26</td>
+<td headers="mereb_rank" class="gt_row gt_center">4</td>
+<td headers="pts_mereb" class="gt_row gt_center">52</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">7</td></tr>
+    <tr><td headers="player" class="gt_row gt_center">Napheesa Collier</td>
+<td headers="oreb" class="gt_row gt_center">97</td>
+<td headers="mereb" class="gt_row gt_center">25</td>
+<td headers="mereb_rank" class="gt_row gt_center">5</td>
+<td headers="pts_mereb" class="gt_row gt_center">53</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">6</td></tr>
+    <tr><td headers="player" class="gt_row gt_center">Teaira McCowan</td>
+<td headers="oreb" class="gt_row gt_center">107</td>
+<td headers="mereb" class="gt_row gt_center">24</td>
+<td headers="mereb_rank" class="gt_row gt_center">6</td>
+<td headers="pts_mereb" class="gt_row gt_center">90</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">1</td></tr>
+    <tr><td headers="player" class="gt_row gt_center">Sabrina Ionescu</td>
+<td headers="oreb" class="gt_row gt_center">35</td>
+<td headers="mereb" class="gt_row gt_center">22</td>
+<td headers="mereb_rank" class="gt_row gt_center">7</td>
+<td headers="pts_mereb" class="gt_row gt_center">6</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">68</td></tr>
+    <tr><td headers="player" class="gt_row gt_center">Brionna Jones</td>
+<td headers="oreb" class="gt_row gt_center">92</td>
+<td headers="mereb" class="gt_row gt_center">20</td>
+<td headers="mereb_rank" class="gt_row gt_center">8</td>
+<td headers="pts_mereb" class="gt_row gt_center">72</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">5</td></tr>
+    <tr><td headers="player" class="gt_row gt_center">Tina Charles</td>
+<td headers="oreb" class="gt_row gt_center">94</td>
+<td headers="mereb" class="gt_row gt_center">19</td>
+<td headers="mereb_rank" class="gt_row gt_center">9</td>
+<td headers="pts_mereb" class="gt_row gt_center">76</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">4</td></tr>
+    <tr><td headers="player" class="gt_row gt_center">Alyssa Thomas</td>
+<td headers="oreb" class="gt_row gt_center">105</td>
+<td headers="mereb" class="gt_row gt_center">19</td>
+<td headers="mereb_rank" class="gt_row gt_center">9</td>
+<td headers="pts_mereb" class="gt_row gt_center">48</td>
+<td headers="pts_mereb_rank" class="gt_row gt_center">10</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="6"> Data from 2002 to All Star Break 2025</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="6"> Data From WNBA API via wehoop ~ Data Viz by Billy Fryer</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<p>As previously mentioned, Angel led the league by a wide margin for most mebounds. This is likely strongly connected to the fact that Reese was also the most blocked player in the WNBA according to WNBA Stats. 76 of Reese’s shots during the 2024 were blocked. Right behind her was Dearica Hamby of the LA Sparks with 75 before a large gap to everyone else. Both Reese and Hamby play well below the rim, even compared to other WNBA players and stand at 6’3”. When playing against giants like Jonquel Jones and Brittney Griner (standing at 6’6” and 6’9” respectively), they’re giving up a huge height advantage with no way to overcome the disadvantage.</p>
+<p>Worth mentioning, despite the wide lead in mebounds Reese ranked 2nd in the league for points off of mebounds trailing Dallas Wings’ center Teaira McCowan. Reese only scored 2 points more than Aliyah Boston who is ranked 3rd in the category. This implies that Angel isn’t getting as much of a boost in scoring from the mebounds as previously thought.</p>
+<div id="vfjhjepvlx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vfjhjepvlx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#vfjhjepvlx thead, #vfjhjepvlx tbody, #vfjhjepvlx tfoot, #vfjhjepvlx tr, #vfjhjepvlx td, #vfjhjepvlx th {
+  border-style: none;
+}
+
+#vfjhjepvlx p {
+  margin: 0;
+  padding: 0;
+}
+
+#vfjhjepvlx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #4C4C4D;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #EFE3C6;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #F57B20;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #F57B20;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vfjhjepvlx .gt_title {
+  color: #4C4C4D;
+  font-size: 125%;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #EFE3C6;
+  border-bottom-width: 0;
+}
+
+#vfjhjepvlx .gt_subtitle {
+  color: #4C4C4D;
+  font-size: 12px;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #EFE3C6;
+  border-top-width: 0;
+}
+
+#vfjhjepvlx .gt_heading {
+  background-color: #EFE3C6;
+  text-align: center;
+  border-bottom-color: #EFE3C6;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #4C4C4D;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #4C4C4D;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_col_heading {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vfjhjepvlx .gt_column_spanner_outer {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vfjhjepvlx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vfjhjepvlx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vfjhjepvlx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #4C4C4D;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vfjhjepvlx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#vfjhjepvlx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#vfjhjepvlx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vfjhjepvlx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vfjhjepvlx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vfjhjepvlx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #4C4C4D;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vfjhjepvlx .gt_stub {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfjhjepvlx .gt_stub_row_group {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vfjhjepvlx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vfjhjepvlx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#vfjhjepvlx .gt_summary_row {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfjhjepvlx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vfjhjepvlx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_grand_summary_row {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfjhjepvlx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#vfjhjepvlx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #050707;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #050707;
+}
+
+#vfjhjepvlx .gt_footnotes {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfjhjepvlx .gt_sourcenotes {
+  color: #4C4C4D;
+  background-color: #EFE3C6;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vfjhjepvlx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfjhjepvlx .gt_left {
+  text-align: left;
+}
+
+#vfjhjepvlx .gt_center {
+  text-align: center;
+}
+
+#vfjhjepvlx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vfjhjepvlx .gt_font_normal {
+  font-weight: normal;
+}
+
+#vfjhjepvlx .gt_font_bold {
+  font-weight: bold;
+}
+
+#vfjhjepvlx .gt_font_italic {
+  font-style: italic;
+}
+
+#vfjhjepvlx .gt_super {
+  font-size: 65%;
+}
+
+#vfjhjepvlx .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#vfjhjepvlx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vfjhjepvlx .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#vfjhjepvlx .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#vfjhjepvlx .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#vfjhjepvlx .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#vfjhjepvlx .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#vfjhjepvlx .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#vfjhjepvlx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_title gt_font_normal" style><span class='gt_from_md'><strong>Worst FG% on Shots After MEREB</strong></span></td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="5" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style><span class='gt_from_md'><strong>Minimum 20 MEREB</strong></span></td>
+    </tr>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="year">Year</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="player">Player</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="mereb">MEREB</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Off of MEREB">
+        <div class="gt_column_spanner">Off of MEREB</div>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="pts_mereb">PTS</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="fg_pct_mereb">FG%</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="year" class="gt_row gt_center">2013</td>
+<td headers="player" class="gt_row gt_center">Glory Johnson</td>
+<td headers="mereb" class="gt_row gt_center">32</td>
+<td headers="pts_mereb" class="gt_row gt_center">20</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">25.6%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2016</td>
+<td headers="player" class="gt_row gt_center">Erika Desouza</td>
+<td headers="mereb" class="gt_row gt_center">20</td>
+<td headers="pts_mereb" class="gt_row gt_center">18</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">30.0%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2005</td>
+<td headers="player" class="gt_row gt_center">Tamika Catchings</td>
+<td headers="mereb" class="gt_row gt_center">21</td>
+<td headers="pts_mereb" class="gt_row gt_center">18</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">32.1%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2024</td>
+<td headers="player" class="gt_row gt_center">Sabrina Ionescu</td>
+<td headers="mereb" class="gt_row gt_center">22</td>
+<td headers="pts_mereb" class="gt_row gt_center">6</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">33.3%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2015</td>
+<td headers="player" class="gt_row gt_center">Maya Moore</td>
+<td headers="mereb" class="gt_row gt_center">34</td>
+<td headers="pts_mereb" class="gt_row gt_center">35</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">36.4%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2013</td>
+<td headers="player" class="gt_row gt_center">Kara Braxton</td>
+<td headers="mereb" class="gt_row gt_center">28</td>
+<td headers="pts_mereb" class="gt_row gt_center">30</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">38.5%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2023</td>
+<td headers="player" class="gt_row gt_center">Alyssa Thomas</td>
+<td headers="mereb" class="gt_row gt_center">23</td>
+<td headers="pts_mereb" class="gt_row gt_center">40</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">38.5%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2019</td>
+<td headers="player" class="gt_row gt_center">Elizabeth Williams</td>
+<td headers="mereb" class="gt_row gt_center">23</td>
+<td headers="pts_mereb" class="gt_row gt_center">38</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">39.6%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2004</td>
+<td headers="player" class="gt_row gt_center">Natalie Williams</td>
+<td headers="mereb" class="gt_row gt_center">21</td>
+<td headers="pts_mereb" class="gt_row gt_center">40</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">40.8%</td></tr>
+    <tr><td headers="year" class="gt_row gt_center">2005</td>
+<td headers="player" class="gt_row gt_center">Yolanda Griffith</td>
+<td headers="mereb" class="gt_row gt_center">20</td>
+<td headers="pts_mereb" class="gt_row gt_center">54</td>
+<td headers="fg_pct_mereb" class="gt_row gt_center">41.5%</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="5"> Data from 2002 to All Star Break 2025</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="5"> Data From WNBA API via wehoop ~ Data Viz by Billy Fryer</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<p>This leads to another point of criticism for Reese: her FG% on shots after mebounds. Despite having so many more Mebounds than opponents, Angel’s efficiency after mebounds has been pretty poor. Luckily for her, this is not historically poor as Angel does not crack the bottom top worst field goal percentages on shots after MEREB. That distinction belongs to Glory Johnson during her 2013 All-Star Campaign with the Tulsa Shock. That All-Star appearance was the first of 2 in her career. Perhaps more surprising is the number of current or future Hall of Famers that appear on this list including Tamika Catchings, Maya Moore, and Alyssa Thomas among others. Angel Reese’s FG% after a MEREB was actually at 46% implying which ranked 29th worst all time. She’s improved on this number shooting over 51% after a MEREB in the 2025 as of the All-Star Break.</p>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/angel-reese-shot-locations-1.png" width="672" /></p>
+<p>Perhaps more interesting is where Reese find success making shots after a MEREB. As expected, all of her shot attempts come right around the rim. However, there is a huge difference in how she finishes on the left side of the rim when compared to the right side. Reese is left-handed, but this split is rather extreme. Ultimately, for her game to improve she has to be able to finish better with both hands.</p>
+<p><em>Stats sourced from Basketball Reference unless otherwise stated.</em></p>
+</div>
