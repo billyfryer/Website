@@ -1,6 +1,6 @@
 ---
 title: "An Analysis in Mebounds"
-date: "2025-07-16"
+date: "2025-07-21"
 author: "Billy Fryer"
 categories: ["WNBA"]
 tags: ["WNBA", "Women's Basketball", "Angel Reese", "Rebounds"]
@@ -219,7 +219,7 @@ calculate_rebound_table <- function(pbp_input = all_pbp,
     arrange(desc(reb))
   
   # Next, do the same thing for OREBs
-  offensive_rebounds_count<- pbp_input %>% 
+  offensive_rebounds_count <- pbp_input %>% 
     filter(type_id %in% oreb_id) %>% 
     # Pull the rebounder_id
     pull(athlete_id_1) %>% 
@@ -250,17 +250,17 @@ calculate_rebound_table <- function(pbp_input = all_pbp,
     #' rebound is shot by the person grabbing the rebound
           # Filter to OREBs
     filter(type_id %in% oreb_id &
-             # where previous event was a shot (not FTs, can be changed)
-             lag(type_id) %in% shots_ids &
-             # And shot shooter == rebounder
-             lag(athlete_id_1) == athlete_id_1
-             ) %>%  
+           # And where the rebounder is the shooter
+           lead(athlete_id_1) == athlete_id_1 &
+           # And current event is a shot of some sort
+           lead(type_id) %in% shots_ids
+  ) %>% 
     # Pull the rebounder_id
     pull(athlete_id_1) %>% 
     # Count rebounds by player
     table(rebounder_id = .) %>% 
     as.data.frame() %>% 
-    # Rename  variables
+    # Rename variables
     select(rebounder_id, mereb = Freq) %>% 
     # Arrange by desc total_reb
     arrange(desc(mereb))
@@ -336,17 +336,18 @@ calculate_points_off_oreb_table <- function(pbp_input = all_pbp,
 }
 
 # Calculate Points off mebounds a
-calculate_points_off_mereb_table <- function(pbp_input = all_pbp,
-                                       roster_input = league_roster) {
+calculate_points_off_mereb_table <- function(
+    pbp_input = pbp_input %>% filter(year(game_date_time) == 2024),
+    roster_input = league_roster) {
   
   # First filter to only shots right after OREBs
   shots_after_merebs <- pbp_input %>% 
            # filter where the previous event was an OREB
     filter(lag(type_id) %in% oreb_id &
-             # And current event is a shot of some sort
-             type_id %in% shots_ids &
              # And where the rebounder is the shooter
-             lag(athlete_id_1) == athlete_id_1
+             lag(athlete_id_1) == athlete_id_1 &
+             # And current event is a shot of some sort
+             type_id %in% shots_ids
     )
   
   
@@ -358,7 +359,7 @@ calculate_points_off_mereb_table <- function(pbp_input = all_pbp,
                 fgm_3 = sum(score_value == 3),
                 fga_3 = sum(str_detect(text, "three point") | score_value == 3),
                 pts = sum(score_value, na.rm = TRUE)) %>% 
-    ungroup() %>% 
+    ungroup() %>%
     # Calculate 2 pointers and percentages
     mutate(fgm_2 = fgm - fgm_3,
            fga_2 = fga - fga_3,
@@ -450,6 +451,8 @@ for (i in 2003:2025) {
 
 <!-- Graphics and Paper -->
 
+*This Article was originally posted on 7-16-2025 but has a slight miscalculating in mebounds. All numbers and relevant commentary have been adjusted.*
+
 In her season and a half in the WNBA, Angel Reese has proven that she is one of the best rebounders in all of basketball. In her own words, ["anything that comes off that board is mine"](https://www.tiktok.com/@angelreese10/video/7515834644336774446), and that has primarily been true. During the 2024 season, she set the WNBA record for rebounds per game for a single season with 13.1 a game. She also led the league in Rebound % (the number of rebounds she recorded divided by the number of rebounds available when she was on the court). As of the 2025 All-Star Break, she's kept up that pace averaging 12.6 rebounds a game (which would rank 2nd all-time to her 2024 season) with a Rebound % of 22.6%. 
 
 The strongest part of her game is her Offensive Rebounding. Angel Reese averaged 5.1 OREB/Game in the 2024 season which is tied with Yolanda Griffith's 2001 Season for best all time. However, Reese's season came under much more scrutiny than Griffith's ever did due to her poor FG%, specifically close to the basket. In 2024, Reese went 147 for 357 (41.1%) on the season within 10 feet of the basket.  It seemed to most fans that a majority of her offensive rebounds were off her own misses. This led to Ben Hendricks coining the term "mebound" on Jeff Teague's Podcast *Club 520*, a term Reese has since trademarked for merchandise [according to the Athletic](https://www.nytimes.com/athletic/6430776/2025/06/16/angel-reese-trademark-mebounds-online-criticism/). To define the term, a mebound occurs when a player takes a shot and misses (including shots that are blocked) and then proceeds to get their own offensive rebound. Although Angel Reese is the most famous mebounder, I wanted to study where she compares historically to other mebounders as well as how they may or may not artificially inflate her other statistics.
@@ -504,7 +507,7 @@ ggplot(data = mebounds_per_year,
   theme_wnba()
 ```
 
-As the graph above shows, the WNBA is on pace to shatter the league record of mebounds in a season. This of course makes perfect sense give the expansion of Golden State and the longest season to date with each team playing 44 games. The total amount of mebounds per year in the league is typically between 900 and just over 1000; the 2025 season is projecting to have approximately 1167. The notable outlier of course is the 2020 season in the Wubble where teams only played 22 games each and an abbreviated playoff.
+As the graph above shows, the WNBA is on pace to shatter the league record of mebounds in a season. This of course makes perfect sense give the expansion of Golden State and the longest season to date with each team playing 44 games. The total amount of mebounds per year in the league is typically between 1500 and 2000; the 2025 season is projecting to have well over 2000. The notable outlier of course is the 2020 season in the Wubble where teams only played 22 games each and an abbreviated playoff.
 
 # Most Notorious Mebounders since 2002
 
@@ -536,9 +539,7 @@ rebound_tables_by_season %>%
 #' and she is on pace for 54 MEREB
 ```
 
-Similar to [Josiah Cohen's article](https://riseofthevalkyries.substack.com/p/is-angel-reese-really-the-queen-of), I also decided to look at the proportion of a player's rebounds that were mebounds (MEREB) rather than a true MEREB% which would be the percentage of Player X's misses acquired by them self as opposed to the percentage of Player Y's misses acquired by them self. I did so to make sure I'm not excluding players that may be poor rebounders overall, yet still good at getting their own misses. After setting a minimum qualifier of 20 MEREB on the season, we find that 13.8% of Angel's rebounds during the 2024 seasons were mebounds, a figure that is 5th best all-time on a season-by-season basis. Due to the expanded number of games, Angel Reese did collect the most total MEREB in a single season of any player all-time with 56.
-
-There are plenty of other notable names on this list including Seattle Storm Ring of Honor Member Lauren Jackson and the aforementioned Yolanda Griffith. Perhaps the most interesting name on the list is Cappie Pondexter, an all-star guard that played for Phoenix during their 2009 Championship season. Pondexter stands at 5'9" yet was able to grab her own misses on a team full of size with WNBA stalwarts Tangela Smith and DeWanna Bonner, who at the time was in her rookie season. Pondexter was in her third year and had just been given the fourth-year team option at the end of her rookie contract prior to the 2009 season. Phoenix eventually traded her to New York in a 3-team trade involving Chicago during the off-season.
+Similar to [Josiah Cohen's article](https://riseofthevalkyries.substack.com/p/is-angel-reese-really-the-queen-of), I also decided to look at the proportion of a player's rebounds that were mebounds (MEREB) rather than a true MEREB% which would be the percentage of Player X's misses acquired by them self as opposed to the percentage of Player Y's misses acquired by them self. I did so to make sure I'm not excluding players that may be poor rebounders overall, yet still good at getting their own misses. After setting a minimum qualifier of 20 MEREB on the season, we find that of Angel Reese doesn't even appear on the list. Although she has achieved notoriety for her mebounds, she's a strong rebounder overall.  On the flip side, Dallas Wings' post player Maddy Siegrist has had 2 of the highest % MEREB seasons in WNBA history.
 
 # How Angel Reese's Performance has been Boosted by Mebounds
 
@@ -570,7 +571,7 @@ rebound_tables_by_season %>%
   gt_theme_wnba()
 ```
 
-As previously mentioned, Angel led the league by a wide margin for most total mebounds in 2024. This is likely strongly connected to the fact that Reese was also the most blocked player in the WNBA. According to WNBA Stats, 76 of Reese's shots during the 2024 season were blocked. Right behind her was Dearica Hamby of the LA Sparks with 75 before a large gap to everyone else. Both Reese and Hamby are back to the basket post players, playing well below the rim even compared to other WNBA centers and both stand at 6'3". When playing against giants like Jonquel Jones and Brittney Griner (standing at 6'6" and 6'9" respectively), Reese and Hamby are giving up a huge height advantage with no way to overcome it due to their style of play. While WNBA Rim FG% is lower than NBA Rim FG% for a variety of reasons, the below the rim style of play of Angel Reese lowers her Rim FG% even further leading to even more mebound opportunities on which she capitalizes.
+As previously mentioned, Angel led the league by a wide margin for most total mebounds in 2024. This is likely strongly connected to the fact that Reese was also the most blocked player in the WNBA. According to WNBA Stats, 76 of Reese's shots during the 2024 season were blocked.  Reese is back to the basket post player, playing well below the rim even compared to other WNBA centers and stands at 6'3". When playing against giants like Jonquel Jones and Brittney Griner (standing at 6'6" and 6'9" respectively), Reese gives up a huge height advantage with no way to overcome it due to her style of play. While WNBA Rim FG% is lower than NBA Rim FG% for a variety of reasons, the below the rim style of play of Angel Reese lowers her Rim FG% even further leading to even more mebound opportunities on which she capitalizes.
 
 Worth mentioning, despite the wide lead in total mebounds acquired, Reese ranked 2nd in the league for points off of mebounds trailing Dallas Wings' center Teaira McCowan. Reese only scored 2 points more than Aliyah Boston who is ranked 3rd in the category. This implies that Angel isn't getting as much of a boost in scoring from the mebounds as previously thought, again due to her below the rim style of play.
 
