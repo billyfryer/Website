@@ -101,7 +101,7 @@ player_status_df %>%
              under_contract = md("Under<br>Contract"),
              total = "Total") %>% 
   # Header
-  tab_header(title = "Toronto/Portland WNBA Expansion Draft Protectable Players") %>% 
+  tab_header(title = md("**Toronto/Portland WNBA Expansion Draft Protectable Players**")) %>% 
   # Footnotes
   tab_footnote("Data Gathered from HerHoopStats ~ Data Visualization by Billy Fryer") %>% 
   tab_footnote("Unknown if teams will be able to protect 1 UFA as they were allowed to in 2024") %>% 
