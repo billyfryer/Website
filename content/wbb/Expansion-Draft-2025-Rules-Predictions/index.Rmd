@@ -105,6 +105,8 @@ player_status_df %>%
   # Footnotes
   tab_footnote("Data Gathered from HerHoopStats ~ Data Visualization by Billy Fryer") %>% 
   tab_footnote("Unknown if teams will be able to protect 1 UFA as they were allowed to in 2024") %>% 
+  # Asterisk for Washington Unsigned Draftees because Nastja Claessens is playing for Kansas State
+  # therefore she is eligible be redrafted.
   tab_footnote(
     footnote = "Unsigned Draftee Nastja Claessens is playing for Kansas State
                 therefore she will be redrafted.",
@@ -119,13 +121,32 @@ player_status_df %>%
   # Convert logo column to an image
   gt_img_rows(columns = c(logo),
               height = 40) %>% 
-  # Center everything
-  cols_align("center")
-  
-
-# Asterisk for Washington Unsigned Draftees because Nastja Claessens is playing for Kansas State therefore she is eligible be redrafted.
-
-# Join wnba_teams and player_status_df
+  # Apply Theming
+  # Center columns
+  cols_align("center") %>% 
+  # Tab Options
+  tab_options(
+    # Table Font Color
+    table.font.color = "#4C4C4D",
+    # Background Color
+    table.background.color = "#EFE3C6",
+    # Bold Title
+    heading.title.font.weight = "bold",
+    # Change Subtitle Font Size
+    heading.subtitle.font.size = 12,
+    # Align Heading
+    heading.align = "center",
+    # WNBA Colored Lines and Change Bar Width
+    table.border.top.color = "#F57B20",
+    table.border.bottom.color = "#F57B20",
+    column_labels.border.bottom.color = "#4C4C4D",
+    column_labels.border.bottom.width = px(3),
+    column_labels.border.top.color = "#4C4C4D",
+    column_labels.border.top.width = px(3),
+    table_body.hlines.color = "#4C4C4D",
+    table_body.border.top.color = "#050707",
+    table_body.border.bottom.color = "#050707"
+    )
 ```
 
 -   Given the table above, I think the current existing WNBA teams will be allowed to protect less than 6 players/player contracts as was the case in 2025. I would predict 4 or 5.
