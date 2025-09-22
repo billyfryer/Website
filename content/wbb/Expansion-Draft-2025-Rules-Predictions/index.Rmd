@@ -1,6 +1,6 @@
 ---
 title: "WNBA Expansion Draft 2025 Rules Predictions"
-date: "2025-09-31"
+date: "2025-09-21"
 author: "Billy Fryer"
 categories: ["WNBA"]
 tags: ["WNBA", "Women's Basketball", "Expansion"]
@@ -52,19 +52,17 @@ Expansion Draft Rules for Minnesota and Orlando were as follows:
 
 -   Trades must be balanced - One player for one player
 
-[Information from ESPN:](https://www.espn.com/wnba/columns/smith_michelle/220930.html)
+[Information from ESPN](https://www.espn.com/wnba/columns/smith_michelle/220930.html)
 
 # How this Expansion Draft is Different
 
-Although we have historical precedence, there are of course things that make this Expansion Draft different than anything the WNBA has faced before - the largest of these being the WNBPA opting out of the Collective Bargaining Agreement at the end of the 2025 season. The Players Association had obviously planned to do this well in advance as there are only 2 players (Lexie Brown and Kalani Brown) that are not on rookie contracts that past this season. That means ***%%%%*** of players are scheduled to be free agents at the end of this season which severely changes the dynamics behind how many players will be protected by each team.
+Although we have historical precedence, there are of course things that make this Expansion Draft different than anything the WNBA has faced before - the largest of these being the WNBPA opting out of the Collective Bargaining Agreement at the end of the 2025 season. The Players Association had obviously planned to do this well in advance as there are only 2 players (Lexie Brown and Kalani Brown) that are not on rookie contracts that past this season. That means all almost of players not on rookie contracts are scheduled to be free agents at the end of this season which severely changes the dynamics behind how many players will be protected by each team.
 
 As mentioned prior, in both 2024 and 1999 Expansion Drafts, existing teams were allowed to protect 6 players. However, in the 2000 Expansion Draft which brought in Indiana, Seattle, Miami and the original Portland franchises, existing teams were only permitted to protect 5 players each until the second round where they were allowed to protect 3 more players. I don't suspect that we're in for a multi-round expansion draft with differing amounts of players being protected at different times, however I would be surprised if teams are allowed to protect 6 players again.
 
 Another event worth mentioning with this expansion draft is the upcoming 2026 Women's Basketball World Cup in Germany. Golden State seemed to catch lightning in a bottle with all of their international players they selected in 2024. That strategy will be hard for the Tempo or Fire to replicate in 2026 because many non-American teams host training camp throughout the summer that players aspiring to play in the World Cup must attend. We saw a few issues this past season with Li Yueru and the Chinese National Team either wanting her to get more playing time or come back to China to prepare for the Asia Cup. I suspect most National Teams will be thinking the same thing due to the early September competition schedule in Germany. Although the path may seem difficult, Portland may attempt to replicate the magic from the Bay Area. The Fire have hired Vanja Černivec as their General Manager away from Golden State. Before spending a season in California, Černivec was most recently the General Manager of the EuroCup Champion London Lions. The Lions - including WNBA Players Temi Fagbenle, Holly Winterburn, Megan Gustafson and Karlie Samuelson - were not expected to win Europe's second biggest championshp in 2024 but with a well constructed roster from players around Great Britain and the world, they were able to pull off the unlikely upset.
 
 # My Predictions
-
--   Make a table with the number of non-UFAs each team has (This includes: players under contract, reserved free agents, restricted free agents, unsigned draftees/draft rights owned, suspended contract expired).
 
 ```{r free-agency-2025, echo=FALSE, message=FALSE, warning=FALSE}
 # Libraries
