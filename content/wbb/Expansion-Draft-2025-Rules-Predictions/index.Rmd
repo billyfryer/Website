@@ -64,89 +64,92 @@ Another event worth mentioning with this expansion draft is the upcoming 2026 Wo
 
 # My Predictions
 
+![](Plots/Expansion-Draft-Possible-Protections-2025.png)
+
 ```{r free-agency-2025, echo=FALSE, message=FALSE, warning=FALSE}
-# Libraries
-library(tidyverse)
-library(gt)
-library(gtExtras)
-library(wehoop)
-
-# First create a dataset based off of Data from Her Hoop Stats
-wnba_teams <- wehoop::wnba_teams() %>% 
-  select(team_abbreviation, logo)
-
-player_status_df <- data.frame(
-  team = wnba_teams$team_abbreviation,
-  logo = wnba_teams$logo,
-  restricted =       c(2, 0, 2, 0, 2, 1, 2, 1, 0, 0, 0, 0 ,2),
-  reserved =         c(3, 1, 1, 4, 4, 1, 0, 3, 3, 3, 6, 2, 3),
-  sce =              c(2, 0, 0, 2, 1, 1, 0, 0, 0, 5, 3, 0, 0),
-  unsigned_draftee = c(3, 2, 0, 0, 1, 0, 0, 0, 2, 2, 0, 0, 2),
-  under_contract =   c(2, 4, 5, 5, 2, 3, 1, 4, 2, 2, 1, 4, 5)
-) %>% 
-  # Mutate on a "total" columns
-  mutate(total = restricted + reserved + sce + unsigned_draftee + under_contract)
-
-player_status_df %>% 
-  # Convert to GT
-  gt() %>%
-  # Hide team column
-  cols_hide(columns = c(team)) %>% 
-  # Relabel columns
-  cols_label(logo = "",
-             restricted = "Restricted",
-             reserved = "Reserved",
-             sce = md("Suspended<br>Contract<br>Expired"),
-             unsigned_draftee = md("Unsigned<br>Draftee"),
-             under_contract = md("Under<br>Contract"),
-             total = "Total") %>% 
-  # Header
-  tab_header(title = md("**Toronto/Portland WNBA Expansion Draft Protectable Players**")) %>% 
-  # Footnotes
-  tab_footnote("Data Gathered from HerHoopStats ~ Data Visualization by Billy Fryer") %>% 
-  tab_footnote("Unknown if teams will be able to protect 1 UFA as they were allowed to in 2024") %>% 
-  # Asterisk for Washington Unsigned Draftees because Nastja Claessens is playing for Kansas State
-  # therefore she is eligible be redrafted.
-  tab_footnote(
-    footnote = "Unsigned Draftee Nastja Claessens is playing for Kansas State
-                therefore she will be redrafted.",
-    locations = cells_body(
-      rows = team == "WAS",
-      columns = unsigned_draftee
-    )
-  ) %>% 
-  # Spanners
-  tab_spanner(label = "Free Agent Status",
-              columns = c(restricted, reserved)) %>% 
-  # Convert logo column to an image
-  gt_img_rows(columns = c(logo),
-              height = 40) %>% 
-  # Apply Theming
-  # Center columns
-  cols_align("center") %>% 
-  # Tab Options
-  tab_options(
-    # Table Font Color
-    table.font.color = "#4C4C4D",
-    # Background Color
-    table.background.color = "#EFE3C6",
-    # Bold Title
-    heading.title.font.weight = "bold",
-    # Change Subtitle Font Size
-    heading.subtitle.font.size = 12,
-    # Align Heading
-    heading.align = "center",
-    # WNBA Colored Lines and Change Bar Width
-    table.border.top.color = "#F57B20",
-    table.border.bottom.color = "#F57B20",
-    column_labels.border.bottom.color = "#4C4C4D",
-    column_labels.border.bottom.width = px(3),
-    column_labels.border.top.color = "#4C4C4D",
-    column_labels.border.top.width = px(3),
-    table_body.hlines.color = "#4C4C4D",
-    table_body.border.top.color = "#050707",
-    table_body.border.bottom.color = "#050707"
-    )
+# # Libraries
+# library(tidyverse)
+# library(gt)
+# library(gtExtras)
+# library(wehoop)
+# 
+# # First create a dataset based off of Data from Her Hoop Stats
+# wnba_teams <- wehoop::wnba_teams() %>% 
+#   select(team_abbreviation, logo)
+# 
+# player_status_df <- data.frame(
+#   team = wnba_teams$team_abbreviation,
+#   logo = wnba_teams$logo,
+#   restricted =       c(2, 0, 2, 0, 2, 1, 2, 1, 0, 0, 0, 0 ,2),
+#   reserved =         c(3, 1, 1, 4, 4, 1, 0, 3, 3, 3, 6, 2, 3),
+#   sce =              c(2, 0, 0, 2, 1, 1, 0, 0, 0, 5, 3, 0, 0),
+#   unsigned_draftee = c(3, 2, 0, 0, 1, 0, 0, 0, 2, 2, 0, 0, 2),
+#   under_contract =   c(2, 4, 5, 5, 2, 3, 1, 4, 2, 2, 1, 4, 5)
+# ) %>% 
+#   # Mutate on a "total" columns
+#   mutate(total = restricted + reserved + sce + unsigned_draftee + under_contract)
+# 
+# player_status_df %>% 
+#   # Convert to GT
+#   gt() %>%
+#   # Hide team column
+#   cols_hide(columns = c(team)) %>% 
+#   # Relabel columns
+#   cols_label(logo = "",
+#              restricted = "Restricted",
+#              reserved = "Reserved",
+#              sce = md("Suspended<br>Contract<br>Expired"),
+#              unsigned_draftee = md("Unsigned<br>Draftee"),
+#              under_contract = md("Under<br>Contract"),
+#              total = "Total") %>% 
+#   # Header
+#   tab_header(title = md("**Toronto/Portland WNBA Expansion Draft Protectable Players**")) %>% 
+#   # Footnotes
+#   tab_footnote("Data Gathered from HerHoopStats ~ Data Visualization by Billy Fryer") %>% 
+#   tab_footnote("Unknown if teams will be able to protect 1 UFA as they were allowed to in 2024") %>% 
+#   # Asterisk for Washington Unsigned Draftees because Nastja Claessens is playing for Kansas State
+#   # therefore she is eligible be redrafted.
+#   tab_footnote(
+#     footnote = "Unsigned Draftee Nastja Claessens is playing for Kansas State
+#                 therefore she will be redrafted.",
+#     locations = cells_body(
+#       rows = team == "WAS",
+#       columns = unsigned_draftee
+#     )
+#   ) %>% 
+#   # Spanners
+#   tab_spanner(label = "Free Agent Status",
+#               columns = c(restricted, reserved)) %>% 
+#   # Convert logo column to an image
+#   gt_img_rows(columns = c(logo),
+#               height = 40) %>% 
+#   # Apply Theming
+#   # Center columns
+#   cols_align("center") %>% 
+#   # Tab Options
+#   tab_options(
+#     # Table Font Color
+#     table.font.color = "#4C4C4D",
+#     # Background Color
+#     table.background.color = "#EFE3C6",
+#     # Bold Title
+#     heading.title.font.weight = "bold",
+#     # Change Subtitle Font Size
+#     heading.subtitle.font.size = 12,
+#     # Align Heading
+#     heading.align = "center",
+#     # WNBA Colored Lines and Change Bar Width
+#     table.border.top.color = "#F57B20",
+#     table.border.bottom.color = "#F57B20",
+#     column_labels.border.bottom.color = "#4C4C4D",
+#     column_labels.border.bottom.width = px(3),
+#     column_labels.border.top.color = "#4C4C4D",
+#     column_labels.border.top.width = px(3),
+#     table_body.hlines.color = "#4C4C4D",
+#     table_body.border.top.color = "#050707",
+#     table_body.border.bottom.color = "#050707"
+#     ) %>% 
+#   gtsave("Expansion-Draft-Possible-Protections-2025.png")
 ```
 
 -   Given the table above, I think the current existing WNBA teams will be allowed to protect less than 6 players/player contracts as was the case in 2025. I would predict 4 or 5.
