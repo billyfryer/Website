@@ -1,0 +1,35 @@
+---
+title: "AHSAA 5A Region 3 Playoff Scenarios as of Week 8"
+date: "2025-10-17"
+author: "Billy Fryer"
+categories: ["Visualizations"]
+tags: ["AHSAA", "Bracketology"]
+---
+
+# Demopolis
+
+![](Plots/Demopolis-10-17-25-Playoff-Scenario-Tree.png)
+
+# Jemsion
+
+![](Plots/Jemison-10-17-25-Playoff-Scenario-Tree.png)
+
+# Montevallo
+
+![](Plots/Montevallo-10-17-25-Playoff-Scenario-Tree.png)
+
+# Northside
+
+![](Plots/Northside-10-17-25-Playoff-Scenario-Tree.png)
+
+# Selma
+
+![](Plots/Selma-10-17-25-Playoff-Scenario-Tree.png)
+
+# Shelby County
+
+![](Plots/Shelby-County-10-17-25-Playoff-Scenario-Tree.png)
+
+# Sipsey Valley
+
+![](Plots/Sipsey-Valley-10-17-25-Playoff-Scenario-Tree.png)
