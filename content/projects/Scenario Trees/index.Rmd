@@ -5,9 +5,10 @@ author: "Billy Fryer"
 categories: ["Brackets, Standings and Tiebreakers"]
 tags: ["Bracketology", "High School Football", "WNBA"]
 ---
+
 ## Background
 
-In 2024, I was the data analyst for the Indiana Fever. As the season progressed, it became increasingly clear that we were going to make the playoffs for the first time in almost a decade. We finally clinched with around 3 games remaining in the season. Naturally, our focus shifted to the playoffs and who our potential opponents were going to be. I did several magic number calculations and had it down to 2 teams, however it wasn't until a conversation with Fever Broadcaster Pat Boylan that we realized there was a 3rd scenario where we possibly would be going to Vegas as well. Knowing these possibilities are critical for all parties involved in  sports - coaches want to know what teams to scout, operations coordinators need to know for which cities they need to make travel plans, network television wants to have contingency plans for where to send their different broadcast teams. For us in Indiana, we luckily had it figured out a few days before the last game of the season, but it was likely possible to know much earlier that. This post describes the systematic process of finding out all the possible scenarios through a framework I've called "Scenario Trees
+In 2024, I was the data analyst for the Indiana Fever. As the season progressed, it became increasingly clear that we were going to make the playoffs for the first time in almost a decade. We finally clinched with around 3 games remaining in the season. Naturally, our focus shifted to the playoffs and who our potential opponents were going to be. I did several magic number calculations and had it down to 2 teams, however it wasn't until a conversation with Fever Broadcaster Pat Boylan that we realized there was a 3rd scenario where we possibly would be going to Vegas as well. Knowing these possibilities are critical for all parties involved in sports - coaches want to know what teams to scout, operations coordinators need to know for which cities they need to make travel plans, network television wants to have contingency plans for where to send their different broadcast teams. For us in Indiana, we luckily had it figured out a few days before the last game of the season, but it was likely possible to know much earlier that. This post describes the systematic process of finding out all the possible scenarios through a framework I've called "Scenario Trees
 
 ## What is a Scenario Tree?
 
@@ -19,11 +20,11 @@ The examples below are all from the 2024 WNBA season. As will be explained later
 
 When looking at the applications of such a project, three types of questions from potential stakeholders come to mind immediately:
 
-1) What is the projection for our team?
+1)  What is the projection for our team?
 
-2) Who are we projected to play against, given that we know (approximately) where we are seeded?
+2)  Who are we projected to play against, given that we know (approximately) where we are seeded?
 
-3) What's the big picture look like? Given a particular scenario, what would the final standings look like?
+3)  What's the big picture look like? Given a particular scenario, what would the final standings look like?
 
 ### Team Projection Trees
 
@@ -45,7 +46,9 @@ As mentioned previously, in the WNBA the top 4 seeds have home court advantage i
 
 ## How It Works Combinatorically
 
-A user inputs the scores of all relevant^["Relevant" meaning related to how the final standings are determined. For example, in the WNBA all games are relevant. However, when determining seeding for the ACC Championship, only ACC matchups are considered] games played as well as the scheduled games remaining with the scores of those games left blank. Then, all possible combinations of winners of the games yet to be played are considered. This means, by adding a singular game, the number of possible scenarios increases exponentially - the number of possible scenarios doubles. 
+A user inputs the scores of all relevant[^1] games played as well as the scheduled games remaining with the scores of those games left blank. Then, all possible combinations of winners of the games yet to be played are considered. This means, by adding a singular game, the number of possible scenarios increases exponentially - the number of possible scenarios doubles.
+
+[^1]: "Relevant" meaning related to how the final standings are determined. For example, in the WNBA all games are relevant. However, when determining seeding for the ACC Championship, only ACC matchups are considered
 
 From there, the current standings are calculated from the data to serve a reference point. Then, for each possible scenario, the new results are calculated based on the given outcomes of the games for that scenario. Those predicted records are then combined with the records from games that have already occurred to produce a team's standings for the entire season given the scenario. Finally, teams are ranked by win percentage and other columns such as "potential 3 seeds" or "top 4 seeds" are then derived from there.
 
@@ -61,4 +64,6 @@ The 2 minor drawbacks of using a decision tree model to find these must-happen g
 
 ## Use Cases
 
-As alluded to earlier, the value of Scenario Trees are endless. What is unique about this process is its applicability across all sports and even to other non-sporting competitions. By inputting final scores, scenario trees can be created for any head to head competition, not just basketball.
+As alluded to earlier, the value of Scenario Trees are endless. What is unique about this process is its applicability across all sports and even to other non-sporting competitions. By inputting final scores, scenario trees can be created for any head to head competition, not just basketball. When creating this project, my test case was Alabama High School Football - using these Scenario Trees to figure out who my hometown team would be playing in the first round of the playoffs. Similar to the background story with the Fever, having an idea of how playoffs are projecting even just a few extra rounds of competition early can become a massive advantage to operations directors who may be scheduling travel and video coordinators trading opposing teams' scouts.
+
+Alternatively, rather than looking ahead for the most likely scenario, [a member of the Sickos Committee](https://sickoscommittee.org) would likely look for the less likely scenarios. Of course, upsets of any magnitude but also scenarios of ties between a large number of teams. Due to the nature of different leagues and sports, tiebreakers are not calculated within Scenario Trees - teams are simply listed as tied in the standings. Given the extensive enumeration of all possible scenarios, a path to even the most unruly of scenarios can be found.
