@@ -1,6 +1,6 @@
 ---
 title: "Scenario Trees"
-date: "2025-11-06"
+date: "2025-12-10"
 author: "Billy Fryer"
 categories: ["Brackets, Standings and Tiebreakers"]
 tags: ["Bracketology", "High School Football", "WNBA"]
@@ -44,7 +44,7 @@ tags: ["Bracketology", "High School Football", "WNBA"]
 <div id="how-it-works-combinatorically" class="section level2">
 <h2>How It Works Combinatorically</h2>
 <p>A user inputs the scores of all relevant<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> games played as well as the scheduled games remaining with the scores of those games left blank. Then, all possible combinations of winners of the games yet to be played are considered. This means, by adding a singular game, the number of possible scenarios increases exponentially - the number of possible scenarios doubles.</p>
-<p>From there, the current standings are calculated from the data to serve a reference point. Then, for each possible scenario, the new results are calculated based on the given outcomes of the games for that scenario. Those predicted records are then combined with the records from games that have already occurred to produce a team’s standings for the entire season given the scenario. Finally, teams are ranked by win percentage and other columns such as “potential 3 seeds” or “top 4 seeds” are then derived from there.</p>
+<p>From there, the current standings are calculated from the data to serve a reference point. Then, for each possible scenario, the new results are calculated based on the given outcomes of the games for that scenario. Those predicted records are then combined with the records from games that have already occurred to produce a team’s standings for the entire season given the scenario. Finally, teams are ranked by win percentage and other columns such as “potential 3 seeds” or “top 4 seeds” are then derived from there. This spread sheet is available for download below in the Shiny App at the end of this article.</p>
 <p>One of the drawbacks of this process is computational intensity: the further we try to project into the future, the longer the process takes to produce a scenario tree. In fact, given enough unknown games, the creation of a given scenario tree may take longer than it takes games to actually be played. However, given the number of games a team plays in a season, teams typically are not looking much beyond a magic number calculation until the end of the regular season.</p>
 </div>
 <div id="creating-trees" class="section level2">
@@ -58,10 +58,14 @@ tags: ["Bracketology", "High School Football", "WNBA"]
 <p>As alluded to earlier, the value of Scenario Trees are endless. What is unique about this process is its applicability across all sports and even to other non-sporting competitions. By inputting final scores, scenario trees can be created for any head to head competition, not just basketball. When creating this project, my test case was Alabama High School Football - using these Scenario Trees to figure out who my hometown team would be playing in the first round of the playoffs. Similar to the background story with the Fever, having an idea of how playoffs are projecting even just a few extra rounds of competition early can become a massive advantage to operations directors who may be scheduling travel and video coordinators trading opposing teams’ scouts.</p>
 <p>Alternatively, rather than looking ahead for the most likely scenario, <a href="https://sickoscommittee.org">a member of the Sickos Committee</a> would likely look for the less likely scenarios. Of course, upsets of any magnitude but also scenarios of ties between a large number of teams. Due to the nature of different leagues and sports, tiebreakers are not calculated within Scenario Trees - teams are simply listed as tied in the standings. Given the extensive enumeration of all possible scenarios, a path to even the most unruly of scenarios can be found.</p>
 </div>
+<div id="computational-speed-and-tree-feasibility" class="section level2">
+<h2>Computational Speed and Tree Feasibility</h2>
+<p>Given the exponential growth of the number of rows based on the number of games remaining, there is a dramatic uptick in computation time required by adding a singular game. For now, the computation is reasonable (runs in only a few minutes) for under 20 games remaining. However, the trees at that point can be very hard to read. Further developments are still be added to make the process both faster and generate trees in a more readable way. In the meantime, I would recommend downloading the spreadsheet for faster and better viewing.</p>
+</div>
 <div id="try-it" class="section level2">
 <h2>Try It!</h2>
 <p>Interested in creating your own Scenario Tree? Follow the instructions on the Shiny App below!</p>
-<p>The Shiny App is still a work in progress so let me know if anything unusual shows up!</p>
+<p>The Shiny App is still a work in progress so let me know if anything unusual shows up or you have any suggestions!</p>
 <center>
 <iframe id="shinyapp" src="https://b4billy.shinyapps.io/scenario-trees/" style="border: none; width: 100%; height: 800px" frameborder="0">
 </iframe>
